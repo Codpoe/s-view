@@ -6,9 +6,23 @@
 </head>
 <body>
     <div id="app">
-        <s-button type="hollow" size="normal" @click="handleClick" :disabled="false">
-            文字按钮
+        <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+            << First
         </s-button>
+        <s-button-group>
+            <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+                < Last
+            </s-button>
+            <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+                2
+            </s-button>
+            <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+                3
+            </s-button>
+            <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+                Next >
+            </s-button>
+        </s-button-group>
     </div>
     <script src="/dist/main.bundle.js"></script>
 </body>

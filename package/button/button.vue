@@ -11,32 +11,34 @@
 </template>
 
 <style lang="postcss">
-    :root {
-        --primary-color: #20A0FF;
-        --primary-light-color: #58B7FF;
-        --primary-dark-color: #1D8CE0;
-        --accent-color: #13CE66;
-        --error-color: #FF4949;
-        --black: #1F2D3D;
-        --light-black: #324057;
-        --extra-light-black: #475669;
-        --silver: #8492A6;
-        --light-silver: #99A9BF;
-        --extra-light-silver: #C0CCDA;
-        --gray: #D3DCE6;
-        --light-gray: #E5E9F2;
-        --extra-light-gray: #EFF2F7;
-        --white: #FFFFFF;
-        --dark-white: #F9FAFC;
-    }
+    @import "../common/common.css";
+    /*:root {*/
+        /*--primary-color: #20A0FF;*/
+        /*--primary-light-color: #58B7FF;*/
+        /*--primary-dark-color: #1D8CE0;*/
+        /*--accent-color: #13CE66;*/
+        /*--error-color: #FF4949;*/
+        /*--black: #1F2D3D;*/
+        /*--light-black: #324057;*/
+        /*--extra-light-black: #475669;*/
+        /*--silver: #8492A6;*/
+        /*--light-silver: #99A9BF;*/
+        /*--extra-light-silver: #C0CCDA;*/
+        /*--gray: #D3DCE6;*/
+        /*--light-gray: #E5E9F2;*/
+        /*--extra-light-gray: #EFF2F7;*/
+        /*--white: #FFFFFF;*/
+        /*--dark-white: #F9FAFC;*/
+    /*}*/
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    /** {*/
+        /*box-sizing: border-box;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+    /*}*/
 
     .s-button {
+        position: relative;
         outline: none;
         border: none;
         background: none;
@@ -64,7 +66,7 @@
         }
     }
 
-    .s-button--pure {
+    .s-button--plain {
         color: var(--primary-color);
         &:hover {
             color: var(--primary-light-color);
@@ -111,23 +113,40 @@
         }
     }
 
-    .s-button--pure--disabled {
+    .s-button--plain--disabled {
         cursor: default;
         color: var(--extra-light-silver);
         &:hover {
             color: var(--extra-light-silver);
         }
     }
+
+    /*.s-button--left {*/
+        /*float: left;*/
+        /*border-radius: 4px 0 0 4px;*/
+    /*}*/
+
+    /*.s-button--in {*/
+        /*float: left;*/
+        /*border-radius: 0;*/
+        /*margin-left: 1px;*/
+    /*}*/
+
+    /*.s-button--right {*/
+        /*float: left;*/
+        /*border-radius: 0 4px 4px 0;*/
+        /*margin-left: 1px;*/
+    /*}*/
 </style>
 
 <script>
-    export default {
+    module.exports = {
         name: "s-button",
 
         props: {
-            type: { // hollow, colored, pure
+            type: { // hollow, colored, plain
                 type: String,
-                default: "colored"
+                default: "hollow"
             },
             size: { // xsmall, small, normal, large
                 type: String,
