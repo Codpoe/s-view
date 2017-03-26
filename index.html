@@ -9,6 +9,7 @@
         <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
             << First
         </s-button>
+
         <s-button-group>
             <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
                 < Last
@@ -23,6 +24,9 @@
                 Next >
             </s-button>
         </s-button-group>
+
+        <s-radio name="radio" label="备选项 1" v-model="picked" :disabled="true">备选项 1</s-radio>
+        <s-radio name="radio" label="备选项 2" v-model="picked" :disabled="false">备选项 2</s-radio>
     </div>
     <script src="/dist/main.bundle.js"></script>
 </body>
