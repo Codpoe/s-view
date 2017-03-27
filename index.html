@@ -25,8 +25,12 @@
             </s-button>
         </s-button-group>
 
-        <s-radio name="radio" label="备选项 1" v-model="picked" :disabled="false">备选项 1</s-radio>
-        <s-radio name="radio" label="备选项 2" v-model="picked" :disabled="false">备选项 2</s-radio>
+        <div>
+            <s-radio name="radio" label="备选项 1" v-model="picked" :disabled="true">备选项 1</s-radio>
+            <s-radio name="radio" label="备选项 2" v-model="picked" :disabled="false">备选项 2</s-radio>
+            <s-checkbox label="备选项 3" v-model="checked" :disabled="true">备选项 3</s-checkbox>
+            <s-checkbox label="备选项 4" v-model="checked" :disabled="false">备选项 4</s-checkbox>
+        </div>
     </div>
     <script src="/dist/main.bundle.js"></script>
 </body>
