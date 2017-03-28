@@ -7,26 +7,29 @@
 <style lang="postcss">
     @import "../common/common.css";
 
-    .s-button-group .s-button {
-        float: left;
+    .s-button-group:after {
+        content: "";
+        display: block;
+        clear: both;
     }
 
-    .s-button-group .s-button:first-child {
-        border-radius: 4px 0 0 4px;
+    .s-button-group {
+        .s-button {
+            float: left;
+            &:first-child {
+                border-radius: 4px 0 0 4px;
+            }
+            &:last-child {
+                border-radius: 0 4px 4px 0;
+            }
+            &:not(:first-child, :last-child) {
+                border-radius: 0;
+            }
+            &:not(:last-child) {
+                margin-right: 1px;
+            }
+        }
     }
-
-    .s-button-group .s-button:last-child {
-        border-radius: 0 4px 4px 0;
-    }
-
-    .s-button-group .s-button:not(:first-child, :last-child) {
-        border-radius: 0;
-    }
-
-    .s-button-group .s-button:not(:last-child) {
-        margin-right: 1px;
-    }
-
 </style>
 
 <script>

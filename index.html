@@ -20,7 +20,7 @@
             <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
                 3
             </s-button>
-            <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+            <s-button type="colored" size="normal" @click="handleClick" :disabled="true">
                 Next >
             </s-button>
         </s-button-group>
@@ -30,6 +30,18 @@
             <s-radio name="radio" label="备选项 2" v-model="picked" :disabled="false">备选项 2</s-radio>
             <s-checkbox label="备选项 3" v-model="checked" :disabled="true">备选项 3</s-checkbox>
             <s-checkbox label="备选项 4" v-model="checked" :disabled="false">备选项 4</s-checkbox>
+        </div>
+
+        <div>
+            <s-input type="text" size="small" v-model="inputValue" placeholder="Username">
+                <template slot="prepend">你真</template>
+                <template slot="append">棒！</template>
+            </s-input>
+            <s-input type="text" size="normal" v-model="inputValue" placeholder="Password">
+                <template slot="prepend">http://</template>
+                <template slot="append">.com</template>
+            </s-input>
+            <s-input type="password" size="large" v-model="inputValue" :disabled="true"></s-input>
         </div>
     </div>
     <script src="/dist/main.bundle.js"></script>
