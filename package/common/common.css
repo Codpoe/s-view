@@ -22,3 +22,11 @@
     padding: 0;
     line-height: 1;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

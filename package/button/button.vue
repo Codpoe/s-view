@@ -17,7 +17,7 @@
         position: relative;
         outline: none;
         border: none;
-        background: none;
+        background-color: transparent;
         border-radius: 4px;
         transition: all 0.25s;
         cursor: pointer;
@@ -26,20 +26,21 @@
 
     .s-button--hollow {
         border: 1px solid var(--primary-color);
-        background: var(--white);
+        background-color: transparent;
         color: var(--primary-color);
         &:hover {
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             color: var(--white);
         }
     }
 
     .s-button--colored {
         border: 1px solid var(--primary-color);
-        background: var(--primary-color);
+        background-color: var(--primary-color);
         color: var(--white);
         &:hover {
-            background: var(--primary-light-color);
+            background-color: var(--primary-light-color);
+            border-color: var(--primary-light-color);
         }
     }
 
@@ -75,7 +76,7 @@
         border-color: var(--extra-light-silver);
         color: var(--extra-light-silver);
         &:hover {
-            background: var(--white);
+            background-color: var(--white);
             color: var(--extra-light-silver);
         }
     }
@@ -83,10 +84,11 @@
     .s-button--colored--disabled {
         cursor: default;
         border-color: var(--extra-light-silver);
-        background: var(--extra-light-gray);
+        background-color: var(--extra-light-gray);
         color: var(--extra-light-silver);
         &:hover {
-            background: var(--extra-light-gray);
+            background-color: var(--extra-light-gray);
+            border-color: var(--extra-light-silver);
         }
     }
 

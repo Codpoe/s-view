@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>sview</title>
+    <style>
+        body {
+            background: white;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -11,13 +16,13 @@
         </s-button>
 
         <s-button-group>
-            <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+            <s-button type="hollow" size="normal" @click="handleClick" :disabled="false">
                 < Last
             </s-button>
             <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
                 2
             </s-button>
-            <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
+            <s-button type="plain" size="normal" @click="handleClick" :disabled="false">
                 3
             </s-button>
             <s-button type="colored" size="normal" @click="handleClick" :disabled="true">
@@ -42,6 +47,10 @@
                 <template slot="append">.com</template>
             </s-input>
             <s-input type="password" size="large" v-model="inputValue" :disabled="true"></s-input>
+        </div>
+
+        <div>
+            <s-select v-model="selected" :options="options" size="normal" placeholder="请选择..." @indicatorclick="handleIndicatorClick" :disabled="false"></s-select>
         </div>
     </div>
     <script src="/dist/main.bundle.js"></script>
