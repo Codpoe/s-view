@@ -1,14 +1,14 @@
 <template>
-    <span class="s-checkbox"
+    <div class="s-checkbox"
           :class="[
               isChecked ? 's-checkbox--checked' : '',
               disabled ? 's-checkbox--disabled' : ''
           ]"
           @click="handleClick">
-        <span class="s-checkbox__indicator"></span>
+        <div class="s-checkbox__indicator"></div>
         <input type="checkbox" :value="label" v-model="model" :disabled="disabled">
         <label><slot></slot></label>
-    </span>
+    </div>
 </template>
 
 <style lang="postcss">
@@ -19,7 +19,6 @@
         align-items: center;
         cursor: pointer;
         .s-checkbox__indicator {
-            display: inline-block;
             position: relative;
             width: 16px;
             height: 16px;
@@ -118,11 +117,11 @@
         computed: {
             model: {
                 get: function () {
-                    console.log("get model： " + this.value);
+                    console.log("checkbox get model： " + this.value);
                     return this.value;
                 },
                 set: function (value) {
-                    console.log("set model: " + value);
+                    console.log("checkbox set model: " + value);
                     this.$emit("input", value);
                 }
             },

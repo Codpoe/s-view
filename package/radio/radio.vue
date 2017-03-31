@@ -1,13 +1,13 @@
 <template>
-    <span class="s-radio"
+    <div class="s-radio"
           :class="[
               isChecked ? 's-radio--checked' : '',
               disabled ? 's-radio--disabled' : ''
           ]" @click="handleClick">
-        <span class="s-radio__indicator"></span>
+        <div class="s-radio__indicator"></div>
         <input type="radio" :name="name" :value="label" v-model="model" :disabled="disabled">
         <label><slot></slot></label>
-    </span>
+    </div>
 </template>
 
 <style lang="postcss">
@@ -18,7 +18,6 @@
         align-items: center;
         cursor: pointer;
         .s-radio__indicator {
-            display: inline-block;
             position: relative;
             height: 16px;
             width: 16px;
@@ -116,11 +115,11 @@
         computed: {
             model: {
                 get: function() {
-                    console.log("get model： " + this.value);
+                    console.log("radio get model： " + this.value);
                     return this.value;
                 },
                 set: function(value) {
-                    console.log("set model: " + value);
+                    console.log("radio set model: " + value);
                     this.$emit("input", value);
                 }
             },

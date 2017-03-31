@@ -35,6 +35,7 @@
             <s-radio name="radio" label="备选项 2" v-model="picked" :disabled="false">备选项 2</s-radio>
             <s-checkbox label="备选项 3" v-model="checked" :disabled="true">备选项 3</s-checkbox>
             <s-checkbox label="备选项 4" v-model="checked" :disabled="false">备选项 4</s-checkbox>
+            <s-switch size="normal" v-model="switched"></s-switch>
         </div>
 
         <div>
@@ -51,6 +52,10 @@
 
         <div>
             <s-select v-model="selected" :options="options" size="normal" placeholder="请选择..." @indicatorclick="handleIndicatorClick" :disabled="false"></s-select>
+        </div>
+
+        <div>
+            <s-switch size="normal" v-model="switched"></s-switch>
         </div>
     </div>
     <script src="/dist/main.bundle.js"></script>

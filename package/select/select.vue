@@ -1,32 +1,18 @@
 <template>
-    <!--<select class="s-select"-->
-            <!--:class="[-->
-                <!--disabled ? 's-select&#45;&#45;disabled' : ''-->
-            <!--]"-->
-            <!--v-model="model"-->
-            <!--@click.prevent="handleClick($event)">-->
-        <!--<slot></slot>-->
-        <!--<option value="1">选项 1</option>-->
-        <!--<option value="2">选项 2</option>-->
-        <!--<option value="3">选项 3</option>-->
-        <!--<option value="4">选项 4</option>-->
-    <!--</select>-->
-    <div
-            class="s-select"
-            :class="[
-                's-select--' + size,
-                shouldOptionsShow ? 's-select--show' : ''
-            ]">
+    <div class="s-select"
+         :class="[
+             's-select--' + size,
+             shouldOptionsShow ? 's-select--show' : ''
+        ]">
 
-        <s-input
-                type="text"
-                :size="size"
-                :placeholder="placeholder"
-                v-model="model"
-                :pendClickable="true"
-                :readonly="readonly"
-                :disabled="disabled"
-                @pendclick="handleIndicatorClick">
+        <s-input type="text"
+                 :size="size"
+                 :placeholder="placeholder"
+                 v-model="model"
+                 :pendClickable="true"
+                 :readonly="readonly"
+                 :disabled="disabled"
+                 @pendclick="handleIndicatorClick">
 
             <template slot="append">
                 <span class="s-select__indicator"></span>
@@ -43,14 +29,6 @@
                 @itemclick="handleItemClick">
         </s-drop-down-menu>
 
-        <!--<transition name="down">-->
-            <!--<div v-if="shouldOptionsShow" class="s-select__options">-->
-                <!--<div>选项 1</div>-->
-                <!--<div>选项 2</div>-->
-                <!--<div>选项 3</div>-->
-                <!--<div>选项 4</div>-->
-            <!--</div>-->
-        <!--</transition>-->
     </div>
 </template>
 
