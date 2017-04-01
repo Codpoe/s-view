@@ -7,6 +7,9 @@
         body {
             background: white;
         }
+        app>div {
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
@@ -56,6 +59,10 @@
 
         <div>
             <s-switch size="normal" v-model="switched"></s-switch>
+        </div>
+
+        <div>
+            <s-slider v-model="slided" :step="1" size="normal"></s-slider>
         </div>
     </div>
     <script src="/dist/main.bundle.js"></script>

@@ -7,6 +7,7 @@ import SInput from "../package/input/input.vue";
 import SDropDownMenu from "../package/drop-down-menu/drop-down-menu.vue";
 import SSelect from "../package/select/select.vue";
 import SSwitch from "../package/switch/switch.vue";
+import SSlider from "../package/slider/slider.vue";
 
 Vue.component(SButton.name, SButton);
 Vue.component(SButtonGroup.name, SButtonGroup);
@@ -16,6 +17,7 @@ Vue.component(SInput.name, SInput);
 Vue.component(SDropDownMenu.name, SDropDownMenu);
 Vue.component(SSelect.name, SSelect);
 Vue.component(SSwitch.name, SSwitch);
+Vue.component(SSlider.name, SSlider);
 
 let app = new Vue({
     el: '#app',
@@ -32,7 +34,8 @@ let app = new Vue({
                 text: "2"
             }
         ],
-        switched: true
+        switched: true,
+        slided: 20
     },
     methods: {
         handleClick: function (ev) {
@@ -43,6 +46,7 @@ let app = new Vue({
             console.log("input: " + this.inputValue);
             console.log("selected: " + this.selected);
             console.log("switched: " + this.switched);
+            console.log("slided: " + this.slided);
         },
         handleIndicatorClick: function (ev) {
             console.log("indicator clicked");
