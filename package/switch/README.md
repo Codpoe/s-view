@@ -6,8 +6,13 @@ need:
 
 option:
 
-- size: `small`, `normal`or`large`. The default is `normal`.
-- disabled: Just disabled. The default is `false`.
+- size
+
+  `small`, `normal`or`large`. The default is `normal`.
+
+- disabled
+
+  Just disabled. The default is `false`.
 
 todo:
 
