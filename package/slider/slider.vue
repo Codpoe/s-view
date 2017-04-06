@@ -5,7 +5,7 @@
              disabled ? 's-slider--disabled' : ''
          ]">
         <div class="s-slider__track"
-             :style="{ width: trackLength + 'px' }">
+             :style="{ width: trackWidth + 'px' }">
             <div class="s-slider__indicator"
                  :style="{ width: indicatorWidth }">
                 <div class="s-slider__indicator__point"
@@ -78,11 +78,11 @@
                 type: Number,
                 default: 100
             },
-            stepLength: {
+            stepValue: {
                 type: Number,
                 default: 1
             },
-            trackLength: {
+            trackWidth: {
                 type: Number,
                 default: 100
             },
@@ -97,8 +97,8 @@
                 isHovering: false,
                 hoveringValue: null,
                 isDragging: false,
-                startX: null,
-                currentX: null
+                startX: 0,
+                currentX: 0
             };
         },
 
@@ -106,21 +106,13 @@
             model: {
                 get: function () {
                     console.log("slider: get model: " + this.value);
-                    switch (true) {
-                        case this.value < this.min:
-                            return this.min;
-                        case this.value > this.max:
-                            return this.max;
-                        default:
-                            return this.value;
+                    if (this.value < this.min) {
+                        return this.min;
+                    } else if (this.value > this.max) {
+                        return this.max;
+                    } else {
+                        return this.value;
                     }
-//                    if (this.value < this.min) {
-//                        return this.min;
-//                    } else if (this.value > this.max) {
-//                        return this.max;
-//                    } else {
-//                        return this.value;
-//                    }
                 },
                 set: function (value) {
                     console.log("slider: set model: " + value);
@@ -130,15 +122,15 @@
 
             stepCount: function () {
                 let length = this.max - this.min;
-                if (length % this.stepLength === 0) {
-                    return length / this.stepLength;
+                if (length % this.stepValue === 0) {
+                    return length / this.stepValue;
                 } else {
                     return length;
                 }
             },
 
             indicatorWidth: function () {
-                return 100 / this.stepCount * this.value + "%";
+                return this.value / (this.max - this.min) * 100 + "%";
             }
         },
 
@@ -158,14 +150,14 @@
             onDragging: function (ev) {
                 if (this.isDragging) {
                     let diffValue;
+                    let oldValue = this.model;
                     this.currentX = ev.clientX;
-                    diffValue = Math.round((this.currentX - this.startX) / this.trackLength * (this.stepCount / 100)) * this.stepLength;
-                    if (this.model + diffValue > this.max) {
-                        this.model = this.max;
-                    } else if (this.model + diffValue < this.min) {
-                        this.model = this.min;
-                    } else {
+                    diffValue = Math.round((this.currentX - this.startX) / (this.trackWidth / this.stepCount)) * this.stepValue;
+
+                    if ((this.currentX > this.startX && this.model !== this.max)
+                        || (this.currentX < this.startX && this.model !== this.min)) {
                         this.model += diffValue;
+                        this.startX += diffValue / this.stepValue * (this.trackWidth / this.stepCount);
                     }
                 }
             },
