@@ -35,7 +35,7 @@ let app = new Vue({
             }
         ],
         switched: true,
-        slided: 20
+        slided: 50
     },
     methods: {
         handleClick: function (ev) {

@@ -1,15 +1,19 @@
 <template>
     <div class="s-slider"
          :class="[
-             's-slider--' + size,
+             isDragging ? 's-slider--dragging' : '',
              disabled ? 's-slider--disabled' : ''
          ]">
-        <div class="s-slider__track">
+        <div class="s-slider__track"
+             :style="{ width: trackLength + 'px' }">
             <div class="s-slider__indicator"
-                 @mouseenter="onMouseEnter"
-                 @mousedown="onMouseDown">
-                <div class="s-slider__indicator__inner">
-                    {{ hoveringValue }}
+                 :style="{ width: indicatorWidth }">
+                <div class="s-slider__indicator__point"
+                     @mouseenter="onMouseEnter"
+                     @mousedown="onMouseDown">
+                    <div class="s-slider__indicator__point__inner">
+                        <!--{{ hoveringValue }}-->
+                    </div>
                 </div>
             </div>
         </div>
@@ -18,10 +22,11 @@
 
 <style lang="postcss">
     @import "../common/common.css";
+    /*background: rgba(32, 160, 255, 0.25);*/
 
     .s-slider {
         display: inline-block;
-        padding: 4px;
+        padding: 8px;
         cursor: pointer;
         .s-slider__track {
             display: inline-flex;
@@ -29,37 +34,31 @@
             justify-content: flex-start;
             align-items: center;
             background: var(--light-gray);
+            height: 6px;
+            border-radius: 3px;
             .s-slider__indicator {
+                height: 100%;
+                background: var(--primary-color);
+                border-radius: 3px;
                 position: relative;
-                left: -2px;
-                border-radius: 50%;
-                background: rgba(32, 160, 255, 0.25);
-                &:hover {
-                    .s-slider__indicator__inner {
-                        transform: scale(1.25) translateY(-16px);
-                        border-radius: 4px;
+                .s-slider__indicator__point {
+                    display: inline;
+                    position: absolute;
+                    top: -5px;
+                    right: -8px;
+                    border-radius: 50%;
+                    background: rgba(32, 160, 255, 0.25);
+                    width: 16px;
+                    height: 16px;
+                    .s-slider__indicator__point__inner {
+                        position: relative;
+                        min-width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background: var(--primary-color);
+                        transition: all 0.25s;
                     }
                 }
-                .s-slider__indicator__inner {
-                    position: relative;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 50%;
-                    background: var(--primary-color);
-                    transition: all 0.25s;
-                }
-            }
-        }
-    }
-
-    .s-slider--normal {
-        .s-slider__track {
-            width: 100px;
-            height: 12px;
-            border-radius: 6px;
-            .s-slider__indicator {
-                width: 16px;
-                height: 16px;
             }
         }
     }
@@ -83,9 +82,9 @@
                 type: Number,
                 default: 1
             },
-            size: { // small, normal or large
-                type: String,
-                default: "normal"
+            trackLength: {
+                type: Number,
+                default: 100
             },
             disabled: {
                 type: Boolean,
@@ -97,6 +96,7 @@
             return {
                 isHovering: false,
                 hoveringValue: null,
+                isDragging: false,
                 startX: null,
                 currentX: null
             };
@@ -106,7 +106,21 @@
             model: {
                 get: function () {
                     console.log("slider: get model: " + this.value);
-                    return this.value;
+                    switch (true) {
+                        case this.value < this.min:
+                            return this.min;
+                        case this.value > this.max:
+                            return this.max;
+                        default:
+                            return this.value;
+                    }
+//                    if (this.value < this.min) {
+//                        return this.min;
+//                    } else if (this.value > this.max) {
+//                        return this.max;
+//                    } else {
+//                        return this.value;
+//                    }
                 },
                 set: function (value) {
                     console.log("slider: set model: " + value);
@@ -116,11 +130,15 @@
 
             stepCount: function () {
                 let length = this.max - this.min;
-                if (length % this.stepCount === 0) {
+                if (length % this.stepLength === 0) {
                     return length / this.stepLength;
                 } else {
                     return length;
                 }
+            },
+
+            indicatorWidth: function () {
+                return 100 / this.stepCount * this.value + "%";
             }
         },
 
@@ -132,26 +150,32 @@
 
             onMouseDown: function (ev) {
                 this.startX = ev.clientX;
+                this.isDragging = true;
                 window.addEventListener("mousemove", this.onDragging);
                 window.addEventListener("mouseup", this.onDragEnd);
             },
 
             onDragging: function (ev) {
-                let diffStepCount;
-                this.currentX = ev.clientX;
-                diffStepCount = Math.round((this.currentX - this.startX) / this.stepLength);
-                if (this.model + diffStepCount > this.stepCount) {
-                    this.model = this.stepCount;
-                } else if (this.model + diffStepCount < 0) {
-                    this.model = 0;
-                } else {
-                    this.model += diffStepCount; // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                if (this.isDragging) {
+                    let diffValue;
+                    this.currentX = ev.clientX;
+                    diffValue = Math.round((this.currentX - this.startX) / this.trackLength * (this.stepCount / 100)) * this.stepLength;
+                    if (this.model + diffValue > this.max) {
+                        this.model = this.max;
+                    } else if (this.model + diffValue < this.min) {
+                        this.model = this.min;
+                    } else {
+                        this.model += diffValue;
+                    }
                 }
             },
 
             onDragEnd: function (ev) {
-                window.removeEventListener("mousemove");
-                window.removeEventListener("mouseup");
+                if (this.isDragging) {
+                    this.isDragging = false;
+                    window.removeEventListener("mousemove", this.onDragging);
+                    window.removeEventListener("mouseup", this.onDragEnd);
+                }
             }
         }
     }
