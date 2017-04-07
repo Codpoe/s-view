@@ -4,14 +4,27 @@
              (shouldShowValue || isDragging) ? 's-slider--dragging' : '',
              disabled ? 's-slider--disabled' : ''
          ]">
+
         <div class="s-slider__track"
+             :class="[
+                 shouldShowStops ? 's-slider__track--stops' : ''
+             ]"
              :style="{ width: trackWidth + 'px' }"
              @click="onTrackClick">
+
+            <div class="s-slider__track__stops">
+                <div v-for="n in (stepCount + 1)"
+                     class="s-slider__track__stop">
+                </div>
+            </div>
+
             <div class="s-slider__indicator"
                  :style="{ width: indicatorWidth }">
+
                 <div class="s-slider__indicator__tooltip">
                     {{ (shouldShowValue || isDragging) ? model : "" }}
                 </div>
+
                 <div class="s-slider__indicator__point"
                      @mouseenter="onMouseEnter"
                      @mouseleave="onMouseLeave"
@@ -33,14 +46,24 @@
         align-items: center;
         padding: 8px;
         .s-slider__track {
-            display: inline-flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
             background: var(--light-gray);
             height: 6px;
             border-radius: 3px;
             cursor: pointer;
+            position: relative;
+            .s-slider__track__stops {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: stretch;
+                .s-slider__track__stop {
+                    width: 2px;
+                    background: var(--extra-light-silver);
+                }
+            }
             .s-slider__indicator {
                 height: 100%;
                 background: var(--primary-color);
@@ -159,6 +182,10 @@
                 type: Number,
                 default: 100
             },
+            shouldShowStops: {
+                type: Boolean,
+                default: false
+            },
             disabled: {
                 type: Boolean,
                 default: false
@@ -199,6 +226,10 @@
                 } else {
                     return length;
                 }
+            },
+
+            stepWidth: function () {
+                return this.trackWidth / this.stepCount;
             },
 
             indicatorWidth: function () {
