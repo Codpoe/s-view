@@ -14,7 +14,8 @@
 
             <div class="s-slider__track__stops">
                 <div v-for="n in (stepCount + 1)"
-                     class="s-slider__track__stop">
+                     class="s-slider__track__stop"
+                     :style="{ opacity: n === 1 || n === stepCount + 1 ? 0 : 1 }">
                 </div>
             </div>
 
@@ -289,7 +290,8 @@
 
             onTrackClick: function (ev) {
                 if (!this.disabled) {
-                    let diffValue = Math.round((ev.clientX - ev.target.offsetLeft) / (this.trackWidth / this.stepCount)) * this.stepValue;
+                    let diffValue = Math.round((ev.clientX - ev.target.offsetParent.offsetLeft) / (this.trackWidth / this.stepCount))
+                        * this.stepValue;
                     this.model = this.min + diffValue;
                 }
             }
