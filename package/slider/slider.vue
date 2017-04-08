@@ -298,14 +298,8 @@
                     } else {
                         diffX = ev.clientX - ev.target.offsetParent.getBoundingClientRect().left;
                     }
-//                    if (this.shouldShowStops) {
-//                        diffX = ev.clientX - ev.target.offsetParent.getBoundingClientRect().left - 8;
-//                    } else {
-//                        diffX = ev.clientX - ev.target.offsetLeft;
-//                    }
                     diffValue = Math.round(diffX / (this.trackWidth / this.stepCount))
                         * this.stepValue;
-                    console.log("diffX = " + diffX);
                     this.model = this.min + diffValue;
                 }
             }
