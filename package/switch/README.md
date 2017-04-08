@@ -2,7 +2,9 @@
 
 need:
 
-- model: Boolean
+- model
+
+  Boolean
 
 option:
 
