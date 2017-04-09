@@ -55,3 +55,7 @@ option:
     - `custom`
     
       `fn`: `Function` with an argument, and it must return a `Boolean`. `error`: `String`.
+    
+    - `trigger`
+    
+      `"blur"`or`"change"`. The default is `"blur"`.
