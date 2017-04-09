@@ -47,7 +47,8 @@ let app = new Vue({
                     return value > 15 && value < 25;
                 },
                 error: "只能填入 15 ～ 25 范围内的数字"
-            }
+            },
+            trigger: "change"
         },
         selected: "2",
         options: [

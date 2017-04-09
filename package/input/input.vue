@@ -323,8 +323,21 @@
                 console.log("prepend / append click");
                 this.$emit("pendclick", ev);
             },
-            
+
             onBlur: function (ev) {
+                if (this.validator.trigger !== "change") {
+                    this.validate();
+                }
+            },
+
+            onChange: function (value) {
+                if (this.validator.trigger === "change") {
+                    this.validate();
+                }
+            },
+
+            validate: function () {
+                console.log(this.model);
                 this.validateOk = true;
                 let required = this.validator.required;
                 let min = this.validator.min;
@@ -363,6 +376,12 @@
                         return;
                     }
                 }
+            }
+        },
+
+        watch: {
+            model: function (value) {
+                this.onChange();
             }
         }
     }
