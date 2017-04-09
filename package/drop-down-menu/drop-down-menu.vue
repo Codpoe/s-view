@@ -30,7 +30,7 @@
         padding: 8px 0;
         background: var(--white);
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
-        z-index: 1;
+        z-index: 1001;
         ul {
             list-style-type: none;
             li {

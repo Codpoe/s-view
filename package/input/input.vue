@@ -330,12 +330,6 @@
                 }
             },
 
-            onChange: function (value) {
-                if (this.validator.trigger === "change") {
-                    this.validate();
-                }
-            },
-
             validate: function () {
                 console.log(this.model);
                 this.validateOk = true;
@@ -381,7 +375,9 @@
 
         watch: {
             model: function (value) {
-                this.onChange();
+                if (this.validator.trigger === "change") {
+                    this.validate();
+                }
             }
         }
     }

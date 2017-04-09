@@ -36,10 +36,7 @@
     @import "../common/common.css";
 
     .s-select {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
+        display: inline-block;
         position: relative;
         .s-input {
             order: 0;
@@ -48,8 +45,8 @@
             }
         }
         .s-select__options {
-            order: 1;
-            margin-top: 4px;
+            position: absolute;
+            width: 100%;
         }
     }
 
@@ -65,6 +62,7 @@
             transform: rotate(-45deg);
         }
         .s-select__options {
+            top: 26px;
             font-size: 12px;
         }
     }
@@ -81,6 +79,7 @@
             transform: translateY(-1px) rotate(-45deg);
         }
         .s-select__options {
+            top: 32px;
             font-size: 14px;
         }
     }
@@ -97,6 +96,7 @@
             transform: translateY(-1px) rotate(-45deg);
         }
         .s-select__ioptions {
+            top: 38px;
             font-size: 16px;
         }
     }
