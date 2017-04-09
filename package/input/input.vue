@@ -330,6 +330,7 @@
                 let min = this.validator.min;
                 let max = this.validator.max;
                 let regexp = this.validator.regexp;
+                let custom = this.validator.custom;
 
                 if (required && required.value === true && (this.model === null || this.model === "")) {
                     this.validateOk = false;
@@ -349,9 +350,16 @@
                 if (regexp) {
                     let pattern = new RegExp(regexp.value);
                     if (!(pattern.test(this.model))) {
-                        console.log("test");
                         this.validateOk = false;
                         this.validateError = regexp.error;
+                        return;
+                    }
+                }
+                if (custom) {
+                    let fn = custom.fn;
+                    if (!fn(this.model)) {
+                        this.validateOk = false;
+                        this.validateError = custom.error;
                         return;
                     }
                 }

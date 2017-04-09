@@ -34,4 +34,24 @@ option:
 
 - validator
 
-  `Object`.
+  `Object`. You can set five different validator at most in this object:
+  
+    - `required`
+    
+      `value`: `Boolean`, `error`: `String`.
+      
+    - `min`
+    
+      `value`: `Number`, `error`: `String`.
+      
+    - `max`
+    
+      `value`: `Number`, `error`: `String`.
+      
+    - `regexp`
+    
+      `value`: /type your regexp here/, `error`: `String`.
+      
+    - `custom`
+    
+      `fn`: `Function` with an argument, and it must return a `Boolean`. `error`: `String`.

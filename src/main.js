@@ -41,6 +41,12 @@ let app = new Vue({
             regexp: {
                 value: /^\d*$/,
                 error: "只能填入数字"
+            },
+            custom: {
+                fn: function (value) {
+                    return value > 15 && value < 25;
+                },
+                error: "只能填入 15 ～ 25 范围内的数字"
             }
         },
         selected: "2",
