@@ -69,6 +69,12 @@
         <div>
             <s-slider v-model="slided" :min="0" :max="100" :step-value="20" :track-width="200" :disabled="true"></s-slider>
         </div>
+
+        <div style="margin-top: 6px">
+            <s-badge :value="101" :max="99" :is-dot="true">
+                <s-button type="hollow" >角标</s-button>
+            </s-badge>
+        </div>
     </div>
     <script src="/dist/main.bundle.js"></script>
 </body>

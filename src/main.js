@@ -8,6 +8,7 @@ import SDropDownMenu from "../package/drop-down-menu/drop-down-menu.vue";
 import SSelect from "../package/select/select.vue";
 import SSwitch from "../package/switch/switch.vue";
 import SSlider from "../package/slider/slider.vue";
+import SBadge from "../package/badge/badge.vue";
 
 Vue.component(SButton.name, SButton);
 Vue.component(SButtonGroup.name, SButtonGroup);
@@ -18,6 +19,7 @@ Vue.component(SDropDownMenu.name, SDropDownMenu);
 Vue.component(SSelect.name, SSelect);
 Vue.component(SSwitch.name, SSwitch);
 Vue.component(SSlider.name, SSlider);
+Vue.component(SBadge.name, SBadge);
 
 let app = new Vue({
     el: '#app',
