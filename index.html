@@ -46,11 +46,11 @@
                 <template slot="prepend">你真</template>
                 <template slot="append">棒！</template>
             </s-input>
-            <s-input type="text" size="normal" v-model="inputValue" placeholder="Password">
+            <s-input type="text" size="normal" v-model="inputValue" placeholder="Password" :validator="validator"></s-input>
+            <s-input type="password" size="large" v-model="inputValue" :disabled="true">
                 <template slot="prepend">http://</template>
                 <template slot="append">.com</template>
             </s-input>
-            <s-input type="password" size="large" v-model="inputValue" :disabled="true"></s-input>
         </div>
 
         <div>

@@ -2,7 +2,9 @@
 
 need:
 
-- model: It is always a String.
+- model
+
+  It is always a `String`.
 
 option:
 
@@ -20,12 +22,16 @@ option:
 
 - pendClickable
 
-  Boolean, `true`or`false`. The default is `false`.
+  `Boolean`, `true`or`false`. The default is `false`.
 
 - readonly
 
-  Boolean, `true`or`false`. If true, you will not allowed to input it by typing words. The default is false.
+  `Boolean`, `true`or`false`. If true, you will not allowed to input it by typing words. The default is false.
 
 - disabled
 
   Just disabled. The default is `false`.
+
+- validator
+
+  `Object`.

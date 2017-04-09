@@ -25,6 +25,24 @@ let app = new Vue({
         picked: "备选项 1",
         checked: ["备选项 3", "备选项 4"],
         inputValue: "",
+        validator: {
+            required: {
+                value: true,
+                error: "此项必填"
+            },
+            min: {
+                value: 10,
+                error: "值不能小于 10"
+            },
+            max: {
+                value: 30,
+                error: "值不能大于 30"
+            },
+            regexp: {
+                value: /^\d*$/,
+                error: "只能填入数字"
+            }
+        },
         selected: "2",
         options: [
             {
