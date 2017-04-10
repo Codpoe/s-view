@@ -9,6 +9,7 @@ import SSelect from "../package/select/select.vue";
 import SSwitch from "../package/switch/switch.vue";
 import SSlider from "../package/slider/slider.vue";
 import SBadge from "../package/badge/badge.vue";
+import SIcon from "../package/icon/icon.vue";
 
 Vue.component(SButton.name, SButton);
 Vue.component(SButtonGroup.name, SButtonGroup);
@@ -20,6 +21,7 @@ Vue.component(SSelect.name, SSelect);
 Vue.component(SSwitch.name, SSwitch);
 Vue.component(SSlider.name, SSlider);
 Vue.component(SBadge.name, SBadge);
+Vue.component(SIcon.name, SIcon);
 
 let app = new Vue({
     el: '#app',

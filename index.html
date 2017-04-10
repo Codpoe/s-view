@@ -15,8 +15,14 @@
 </head>
 <body>
     <div id="app">
-        <s-button type="colored" size="normal" @click="handleClick" :disabled="false">
-            << First
+        <s-button type="colored" size="small" @click="handleClick" :disabled="false">
+            <s-icon name="github"></s-icon> GitHub
+        </s-button>
+        <s-button type="hollow" size="normal" @click="handleClick" :disabled="false">
+            <s-icon name="github"></s-icon> GitHub
+        </s-button>
+        <s-button type="colored" size="large" @click="handleClick" :disabled="false">
+            <s-icon name="github"></s-icon> GitHub
         </s-button>
 
         <s-button-group>
@@ -80,6 +86,10 @@
             <s-badge :value="66" :max="99" :is-dot="true">
                 <s-button type="plain" >点</s-button>
             </s-badge>
+        </div>
+
+        <div>
+            <s-icon name="print"></s-icon>
         </div>
     </div>
     <script src="/dist/main.bundle.js"></script>
