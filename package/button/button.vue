@@ -6,7 +6,7 @@
                 disabled ? 's-button--' + type + '--disabled' : ''
             ]"
             @click="handleClick">
-        <span><slot></slot></span>
+        <slot></slot>
     </button>
 </template>
 
