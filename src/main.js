@@ -10,6 +10,7 @@ import SSwitch from "../package/switch/switch.vue";
 import SSlider from "../package/slider/slider.vue";
 import SBadge from "../package/badge/badge.vue";
 import SIcon from "../package/icon/icon.vue";
+import SPicker from "../package/picker/picker.vue";
 
 Vue.component(SButton.name, SButton);
 Vue.component(SButtonGroup.name, SButtonGroup);
@@ -22,6 +23,7 @@ Vue.component(SSwitch.name, SSwitch);
 Vue.component(SSlider.name, SSlider);
 Vue.component(SBadge.name, SBadge);
 Vue.component(SIcon.name, SIcon);
+Vue.component(SPicker.name, SPicker);
 
 let app = new Vue({
     el: '#app',
@@ -64,7 +66,9 @@ let app = new Vue({
             }
         ],
         switched: true,
-        slided: 40
+        slided: 40,
+        pickerItems: ["C", "C++", "Java", "JavaScript", "Python", "PHP"],
+        picked: 4
     },
     methods: {
         handleClick: function (ev) {

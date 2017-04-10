@@ -88,8 +88,17 @@
             </s-badge>
         </div>
 
-        <div>
-            <s-icon name="print"></s-icon>
+        <div style="margin-top: 6px;">
+            <s-badge :value="6" :max="99" :is-dot="true">
+                <s-button type="hollow" size="normal">
+                    <s-icon name="github"></s-icon> GitHub
+                </s-button>
+            </s-badge>
+        </div>
+
+        <div style="margin-top: 6px;">
+            <s-picker :items="pickerItems" v-model="picked"></s-picker>
+            <s-picker :items="pickerItems" v-model="picked"></s-picker>
         </div>
     </div>
     <script src="/dist/main.bundle.js"></script>
