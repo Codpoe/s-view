@@ -25,8 +25,8 @@
             justify-content: center;
             align-items: center;
             border: 1px solid var(--white);
-            border-radius: 10px;
-            height: 20px;
+            border-radius: 9px;
+            height: 18px;
             padding: 0 6px;
             background-color: var(--error-color);
             color: var(--white);

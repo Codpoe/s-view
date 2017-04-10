@@ -75,12 +75,15 @@
                     position: absolute;
                     top: -5px;
                     right: -8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     min-width: 16px;
                     min-height: 16px;
-                    padding: 6px;
+                    padding: 0 6px;
                     border-radius: 8px;
                     background: var(--primary-color);
-                    font-size: 14px;
+                    font-size: 12px;
                     color: var(--white);
                     user-select: none;
                     transition: all 0.25s;
@@ -101,7 +104,7 @@
 
     .s-slider--dragging {
         .s-slider__indicator__tooltip {
-            transform: translateY(-32px);
+            transform: translateY(-20px);
         }
     }
 
