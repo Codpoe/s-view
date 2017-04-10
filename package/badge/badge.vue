@@ -4,8 +4,8 @@
              isDot ? 's-badge--dot' : ''
          ]">
         <slot></slot>
-        <sup class="s-badge__inner">
-            {{ showValue }}
+        <sup v-show="!hidden && (content || isDot)" class="s-badge__inner">
+            {{ content }}
         </sup>
     </div>
 </template>
@@ -18,8 +18,8 @@
         position: relative;
         .s-badge__inner {
             position: absolute;
-            top: 0px;
-            right: 0px;
+            top: 0;
+            right: 0;
             transform: translateX(50%) translateY(-50%);
             display: flex;
             justify-content: center;
@@ -59,6 +59,10 @@
             isDot: {
                 type: Boolean,
                 default: false
+            },
+            hidden: {
+                type: Boolean,
+                default: false
             }
         },
 
@@ -67,7 +71,7 @@
         },
 
         computed: {
-            showValue: function () {
+            content: function () {
                 if (this.isDot) {
                     return;
                 }
