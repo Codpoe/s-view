@@ -68,7 +68,8 @@ let app = new Vue({
         switched: true,
         slided: 40,
         pickerItems: ["C", "C++", "Java", "JavaScript", "Python", "PHP"],
-        picked: 4
+        // pickerItems: [0, 1, 2, 3, 4, 5],
+        picked: "JavaScript"
     },
     methods: {
         handleClick: function (ev) {
@@ -80,6 +81,7 @@ let app = new Vue({
             console.log("selected: " + this.selected);
             console.log("switched: " + this.switched);
             console.log("slided: " + this.slided);
+            this.picked = "Java";
         },
         handleIndicatorClick: function (ev) {
             console.log("indicator clicked");
