@@ -97,8 +97,9 @@
         </div>
 
         <div style="margin-top: 6px;">
-            <s-picker :items="pickerItems" v-model="picked"></s-picker>
-            <s-picker :items="pickerItems" v-model="picked"></s-picker>
+            <s-picker :items="yearItems" v-model="pickedYear"></s-picker>
+            <s-picker :items="monthItems" v-model="pickedMonth"></s-picker>
+            <s-picker :items="dateItems" v-model="pickedDate"></s-picker>
         </div>
     </div>
     <script src="/dist/main.bundle.js"></script>

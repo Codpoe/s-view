@@ -67,9 +67,14 @@ let app = new Vue({
         ],
         switched: true,
         slided: 40,
-        pickerItems: ["C", "C++", "Java", "JavaScript", "Python", "PHP"],
-        // pickerItems: [0, 1, 2, 3, 4, 5],
-        picked: "JavaScript"
+        yearItems: ["1970", "1975", "1980", "1985", "1990", "1995", "2000", "2005", "2010", "2015"],
+        monthItems: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+        dateItems: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+            "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "26", "27",
+            "28", "29", "30", "31"],
+        pickedYear: "1995",
+        pickedMonth: "12",
+        pickedDate: "4"
     },
     methods: {
         handleClick: function (ev) {
