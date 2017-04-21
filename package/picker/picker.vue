@@ -138,7 +138,7 @@
         props: {
             items: Array,
             value: {},
-            type: {
+            type: { // normal, date, time
                 type: String,
                 default: "normal"
             },
@@ -207,6 +207,14 @@
 
             }
         },
+
+//        created: function () {
+//            switch (this.type) {
+//                case "date":
+//                    console.log("date");
+//                    this.items = []
+//            }
+//        },
 
         mounted: function () {
             this.$refs.picker.scrollTop = this.items.indexOf(this.model) * 26;
