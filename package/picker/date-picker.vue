@@ -23,9 +23,9 @@
             :shouldShow="shouldShow">
             <template>    
                 <s-picker :items="yearItems" v-model="yearModel"></s-picker>
-                /
+                {{ separator }}
                 <s-picker :items="monthItems" v-model="monthModel"></s-picker>
-                /
+                {{ separator }}
                 <s-picker :items="dayItems" v-model="dayModel"></s-picker>
             </template>
         </s-drop-down-menu>
@@ -118,9 +118,12 @@
             },
             placeholder: {
                 type: String,
-                default: ""
+                default: "请选择时间"
             },
-
+            separator: {
+                type: String,
+                default: "-"
+            }
         },
 
         data: function() {
@@ -128,30 +131,20 @@
                 shouldShow: false,
                 yearModel: "",
                 monthModel: "",
-                dayModel: ""
+                dayModel: "",
+                formattedDate: ""
             }
         },
 
         computed: {
-            realValue: function() {
-                let tempValue = new Date(this.value);
-                this.yearModel = String(tempValue.getFullYear());
-                if (tempValue.getMonth() < 9) {
-                    this.monthModel = "0" + (tempValue.getMonth() + 1);
-                } else {
-                    this.monthModel = String(tempValue.getMonth() + 1);
-                }
-                if (tempValue.getDate() < 10) {
-                    this.dayModel = "0" + tempValue.getDate();
-                } else {
-                    this.dayModel = String(tempValue.getDate());
-                }
-                return tempValue;
+            dateValue: function() {
+                let tempDate = new Date(this.value);
+                return String(tempDate) !== "Invalid Date" ? tempDate : new Date();
             },
             model: {
                 get: function() {
-                    console.log("get date-picker model: " + this.realValue);
-                    return this.yearModel + "/" + this.monthModel + "/" + this.dayModel;
+                    console.log("get date-picker model: " + this.formattedDate);
+                    return this.formattedDate;
                 },
                 set: function(value) {
                     console.log("set date-picker model: " + value);
@@ -160,13 +153,38 @@
             }
         },
 
+        watch: {
+            yearModel: function(newValue, oldValue) {
+                this.formattedDate = newValue + this.separator + this.monthModel + this.separator + this.dayModel;
+            },
+            monthModel: function(newValue, oldValue) {
+                this.formattedDate = this.yearModel + this.separator + newValue + this.separator + this.dayModel;
+            },
+            dayModel: function(newValue, oldValue) {
+                this.formattedDate = this.yearModel + this.separator + this.monthModel + this.separator + newValue;
+            }
+        },
+
         methods: {
             onIndicatorClick: function(ev) {
                 this.shouldShow = !this.shouldShow;
+            },
+        },
+
+        created: function() {
+            this.yearModel = String(this.dateValue.getFullYear());
+            if (this.dateValue.getMonth() < 9) {
+                this.monthModel = "0" + (this.dateValue.getMonth() + 1);
+            } else {
+                this.monthModel = String(this.dateValue.getMonth() + 1);
             }
+            if (this.dateValue.getDate() < 10) {
+                this.dayModel = "0" + this.dateValue.getDate();
+            } else {
+                this.dayModel = String(this.dateValue.getDate());
+            }
+            this.formattedDate = this.yearModel + this.separator + this.monthModel + this.separator + this.dayModel;;
         }
-
-
     }
 </script>
 
