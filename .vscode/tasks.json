@@ -9,8 +9,17 @@
     "suppressTaskName": true,
     "tasks": [
         {
+            "taskName": "install",
+            "args": [
+                "install"
+            ]
+        },
+        {
             "taskName": "dev",
-            "args": ["run", "dev"]
+            "args": [
+                "run", 
+                "dev"
+            ]
         }
     ]
 }

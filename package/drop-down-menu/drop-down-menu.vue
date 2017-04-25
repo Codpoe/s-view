@@ -1,10 +1,11 @@
 <template>
     <transition v-if="shouldShow" name="drop-down">
-        <div class="s-drop-down-menu"
-             :class="[
-                 's-drop-down-menu--' + type,
-                 's-drop-down-menu--' + size
-             ]">
+        <div v-if="type !== 'plain'" 
+            class="s-drop-down-menu"
+            :class="[
+                's-drop-down-menu--' + type,
+                's-drop-down-menu--' + size
+            ]">
             <ul>
                 <li v-for="item in items"
                     :class="[
@@ -15,11 +16,21 @@
                 </li>
             </ul>
         </div>
+        <div v-else class="s-drop-down-menu--plain">
+            <slot></slot>
+        </div>
     </transition>
 </template>
 
 <style lang="postcss">
     @import "../common/common.css";
+
+    .s-drop-down-menu--plain {
+        background: var(--white);
+        border-radius: 4px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+        z-index: 1001;
+    }
 
     .s-drop-down-menu {
         display: inline-flex;

@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -16,18 +17,27 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                use: [
-                    {
-                        loader: "vue-loader",
-                        options: {
-                            postcss: [
-                                require("postcss-cssnext")(),
-                                require("precss")()
-                            ]
-                        }
+                loader: "vue-loader",
+                options: {
+                    loaders: {
+                        postcss: ExtractTextPlugin.extract({
+                            use: "css-loader",
+                                // loader: "css-loader",
+                                // options: {
+                                //     postcss: [
+                                //         require("postcss-cssnext")(),
+                                //         require("precss")()
+                                //     ]
+                                // }
+                            // },
+                            fallback: "vue-style-loader"
+                        })
                     },
-
-                ]
+                    postcss: [
+                        require("postcss-cssnext")(),
+                        require("precss")()
+                    ]
+                }
             },
             {
                 test: /\.js$/,
@@ -40,29 +50,29 @@ module.exports = {
                 // loader: 'babel-loader',
                 // exclude: /node_modules/
             },
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader",
-                    },
-                    {
-                        loader: "css-loader",
-                        options: {
+            // {
+                // test: /\.css$/,
+                // use: [
+                //     {
+                //         loader: "style-loader",
+                //     },
+                //     {
+                //         loader: "css-loader",
+                //         options: {
 
-                        }
-                    },
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            plugins: [
-                                require("postcss-cssnext")(),
-                                require("precss")()
-                            ]
-                        }
-                    }
-                ]
-            },
+                //         }
+                //     },
+                //     {
+                //         loader: "postcss-loader",
+                //         options: {
+                //             plugins: [
+                //                 require("postcss-cssnext")(),
+                //                 require("precss")()
+                //             ]
+                //         }
+                //     }
+                // ]
+            // },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
                 use: [
@@ -76,6 +86,11 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: "sview-style.css"
+        })
+    ],
     resolve: {
         alias: {
             "vue$": "vue/dist/vue.esm.js"

@@ -212,6 +212,9 @@
                     .s-select__indicator {
                         border-color: var(--primary-color);
                     }
+                    .s-date-picker__indicator {
+                        border-color: var(--primary-color);
+                    }
                 }
             }
         }
@@ -321,7 +324,7 @@
         methods: {
             handlePendClick: function (ev) {
                 console.log("prepend / append click");
-                this.$emit("pendclick", ev);
+                this.$emit("pendClick", ev);
             },
 
             onBlur: function (ev) {

@@ -11,6 +11,7 @@ import SSlider from "../package/slider/slider.vue";
 import SBadge from "../package/badge/badge.vue";
 import SIcon from "../package/icon/icon.vue";
 import SPicker from "../package/picker/picker.vue";
+import SDatePicker from "../package/picker/date-picker.vue";
 
 Vue.component(SButton.name, SButton);
 Vue.component(SButtonGroup.name, SButtonGroup);
@@ -24,6 +25,7 @@ Vue.component(SSlider.name, SSlider);
 Vue.component(SBadge.name, SBadge);
 Vue.component(SIcon.name, SIcon);
 Vue.component(SPicker.name, SPicker);
+Vue.component(SDatePicker.name, SDatePicker);
 
 let app = new Vue({
     el: '#app',
@@ -74,7 +76,8 @@ let app = new Vue({
             "28", "29", "30", "31"],
         pickedYear: "1995",
         pickedMonth: "12",
-        pickedDate: "4"
+        pickedDay: "4",
+        pickedDate: "2017/04/24"
     },
     methods: {
         handleClick: function (ev) {

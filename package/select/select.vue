@@ -12,7 +12,7 @@
                  :pendClickable="true"
                  :readonly="readonly"
                  :disabled="disabled"
-                 @pendclick="handleIndicatorClick">
+                 @pendClick="handleIndicatorClick">
 
             <template slot="append">
                 <span class="s-select__indicator"></span>
@@ -39,7 +39,6 @@
         display: inline-block;
         position: relative;
         .s-input {
-            order: 0;
             .s-select__indicator {
                 transition: all 0.25s;
             }
@@ -95,7 +94,7 @@
             border-radius: 2px;
             transform: translateY(-1px) rotate(-45deg);
         }
-        .s-select__ioptions {
+        .s-select__options {
             top: 38px;
             font-size: 16px;
         }
@@ -121,10 +120,16 @@
 </style>
 
 <script>
-//    import SInput from "../input/input.vue";
+   import SInput from "../input/input.vue";
+   import SDropDownMenu from '../drop-down-menu/drop-down-menu.vue';
 
-    module.exports = {
+    export default {
         name: "s-select",
+
+        components: {
+            SInput,
+            SDropDownMenu
+        },
         
         props: {
             size: {
