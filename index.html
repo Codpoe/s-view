@@ -15,18 +15,25 @@
     </style>
 </head>
 <body>
-    <div id="app">
-        <s-button type="colored" size="small" @click="handleClick" :disabled="false">
+    <div id="app" style="margin: 16px">
+        <s-button mode="normal raised" color-style="primary" @click="handleClick" :disabled="false">
             <s-icon name="github"></s-icon> GitHub
         </s-button>
-        <s-button type="hollow" size="normal" @click="handleClick" :disabled="false">
+        <s-button mode="normal raised" color-style="accent" @click="handleClick" :disabled="false">
             <s-icon name="github"></s-icon> GitHub
         </s-button>
-        <s-button type="colored" size="large" @click="handleClick" :disabled="false">
+        <s-button mode="normal flat" @click="handleClick" :disabled="false">
             <s-icon name="github"></s-icon> GitHub
+        </s-button>
+        <s-button mode="fab raised" color-style="accent">
+            <s-icon name="add"></s-icon>
+        </s-button>
+        <s-button mode="mini-fab raised" color-style="accent">
+            <s-icon name="add"></s-icon>
         </s-button>
 
-        <s-button-group>
+
+        <s-button-group style="margin: 16px">
             <s-button type="hollow" size="normal" @click="handleClick" :disabled="false">
                 < Last
             </s-button>

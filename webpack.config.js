@@ -46,9 +46,8 @@ module.exports = {
                     options: {
                         presets: ["es2015"]
                     }
-                }]
-                // loader: 'babel-loader',
-                // exclude: /node_modules/
+                }],
+                exclude: /node_modules/
             },
             // {
                 // test: /\.css$/,

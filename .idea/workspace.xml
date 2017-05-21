@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc789c2a-abaa-4113-b759-a55b1042ad87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package/picker/date-picker.vue" afterPath="$PROJECT_DIR$/package/picker/date-picker.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,11 +61,11 @@
               <caret line="79" column="32" lean-forward="false" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1493098610000" expanded="true" signature="2754:2760" ph="{&quot;picked&quot;: &quot;备选项 1&quot;...}" />
-                <marker date="1493098610000" expanded="true" signature="2754:3388" ph="{&quot;el&quot;: '##app'...}" />
-                <marker date="1493098610000" expanded="true" signature="2775:3386" ph="{...}" />
-                <marker date="1493098610000" expanded="true" signature="2812:3248" ph="{...}" />
-                <marker date="1493098610000" expanded="true" signature="3294:3380" ph="{...}" />
+                <marker date="1493109194000" expanded="true" signature="2754:2760" ph="{&quot;picked&quot;: &quot;备选项 1&quot;...}" />
+                <marker date="1493109194000" expanded="true" signature="2754:3388" ph="{&quot;el&quot;: '##app'...}" />
+                <marker date="1493109194000" expanded="true" signature="2775:3386" ph="{...}" />
+                <marker date="1493109194000" expanded="true" signature="2812:3248" ph="{...}" />
+                <marker date="1493109194000" expanded="true" signature="3294:3380" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -111,7 +112,7 @@
       <file leaf-file-name="picker.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package/picker/picker.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
+            <state relative-caret-position="1449">
               <caret line="210" column="32" lean-forward="false" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
               <folding />
             </state>
@@ -121,16 +122,10 @@
       <file leaf-file-name="date-picker.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package/picker/date-picker.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-41">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="414">
+              <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
               <folding>
-                <element signature="e#2032#2072#0" expanded="true" />
-                <marker date="1493104299000" expanded="true" signature="2256:3600" ph="{...}" />
-                <marker date="1493104299000" expanded="true" signature="3542:3600" ph="{&quot;type&quot;: String...}" />
-                <marker date="1493104299000" expanded="true" signature="5057:5075" ph="{...}" />
-                <marker date="1493104299000" expanded="true" signature="5057:5263" ph="{...}" />
-                <marker date="1493104299000" expanded="true" signature="5057:5273" ph="{...}" />
-                <marker date="1493104299000" expanded="true" signature="5114:5249" ph="{...}" />
+                <element signature="e#2060#2100#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,7 +134,7 @@
       <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package/common/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
+            <state relative-caret-position="306">
               <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding />
             </state>
@@ -201,7 +196,6 @@
         <option value="$PROJECT_DIR$/package/badge/badge.vue" />
         <option value="$PROJECT_DIR$/package/badge/README.md" />
         <option value="$PROJECT_DIR$/package/common/common.css" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/package/common/font-awesome.css" />
         <option value="$PROJECT_DIR$/package/icon/icon.vue" />
         <option value="$PROJECT_DIR$/package/button/button.vue" />
@@ -210,6 +204,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/package/picker/picker.vue" />
         <option value="$PROJECT_DIR$/package/picker/date-picker.vue" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
       </list>
     </option>
   </component>
@@ -265,11 +260,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="switch" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -284,262 +275,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="select" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="radio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="picker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="input" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drop-down-menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="font-awesome.css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="checkbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="button-group" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="button" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="badge" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -670,7 +405,7 @@
       <workItem from="1490895753255" duration="21375000" />
       <workItem from="1491379836965" duration="28000" />
       <workItem from="1491379881473" duration="18579000" />
-      <workItem from="1491478054594" duration="83547000" />
+      <workItem from="1491478054594" duration="86630000" />
     </task>
     <task id="LOCAL-00001" summary="add s-button-group">
       <created>1490509579153</created>
@@ -921,7 +656,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244408000" />
+    <option name="totallyTimeSpent" value="247491000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -934,6 +669,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23749007" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.49086577" order="9" side_tool="false" content_ui="tabs" />
@@ -942,7 +678,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.4940429" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25616437" sideWeight="0.43685466" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25616437" sideWeight="0.43685466" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1070,11 +806,11 @@
           <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1493098610000" expanded="true" signature="2754:2760" ph="{&quot;picked&quot;: &quot;备选项 1&quot;...}" />
-            <marker date="1493098610000" expanded="true" signature="2754:3388" ph="{&quot;el&quot;: '##app'...}" />
-            <marker date="1493098610000" expanded="true" signature="2775:3386" ph="{...}" />
-            <marker date="1493098610000" expanded="true" signature="2812:3248" ph="{...}" />
-            <marker date="1493098610000" expanded="true" signature="3294:3380" ph="{...}" />
+            <marker date="1493109194000" expanded="true" signature="2754:2760" ph="{&quot;picked&quot;: &quot;备选项 1&quot;...}" />
+            <marker date="1493109194000" expanded="true" signature="2754:3388" ph="{&quot;el&quot;: '##app'...}" />
+            <marker date="1493109194000" expanded="true" signature="2775:3386" ph="{...}" />
+            <marker date="1493109194000" expanded="true" signature="2812:3248" ph="{...}" />
+            <marker date="1493109194000" expanded="true" signature="3294:3380" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1104,13 +840,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/test.html" />
     <entry file="file://$PROJECT_DIR$/vue/s-button.vue" />
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1328,14 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="69" column="43" lean-forward="false" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package/common/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1387,54 +1108,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package/select/select.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2434">
-          <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-          <folding>
-            <marker date="1492970687000" expanded="true" signature="2512:2589" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="2627:2730" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="2658:2724" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="2769:2872" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="2800:2866" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="2910:3013" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="2941:3007" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="3273:5283" ph="{&quot;name&quot;: &quot;s-select&quot;...}" />
-            <marker date="1492970687000" expanded="true" signature="3298:3826" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="3318:3397" ph="{&quot;type&quot;: String...}" />
-            <marker date="1492970687000" expanded="true" signature="3424:3497" ph="{&quot;type&quot;: String...}" />
-            <marker date="1492970687000" expanded="true" signature="3543:3615" ph="{&quot;type&quot;: Array...}" />
-            <marker date="1492970687000" expanded="true" signature="3639:3715" ph="{&quot;type&quot;: Boolean...}" />
-            <marker date="1492970687000" expanded="true" signature="3739:3816" ph="{&quot;type&quot;: Boolean...}" />
-            <marker date="1492970687000" expanded="true" signature="3863:3951" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="3884:3940" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="3980:4700" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4001:4346" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4036:4162" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4202:4332" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4387:4690" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4438:4637" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4548:4619" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4728:5277" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4769:4785" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="4835:5021" ph="{...}" />
-            <marker date="1492970687000" expanded="true" signature="5068:5267" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package/icon/icon.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package/common/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1479,43 +1156,97 @@
           <caret line="79" column="32" lean-forward="false" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1493098610000" expanded="true" signature="2754:2760" ph="{&quot;picked&quot;: &quot;备选项 1&quot;...}" />
-            <marker date="1493098610000" expanded="true" signature="2754:3388" ph="{&quot;el&quot;: '##app'...}" />
-            <marker date="1493098610000" expanded="true" signature="2775:3386" ph="{...}" />
-            <marker date="1493098610000" expanded="true" signature="2812:3248" ph="{...}" />
-            <marker date="1493098610000" expanded="true" signature="3294:3380" ph="{...}" />
+            <marker date="1493109194000" expanded="true" signature="2754:2760" ph="{&quot;picked&quot;: &quot;备选项 1&quot;...}" />
+            <marker date="1493109194000" expanded="true" signature="2754:3388" ph="{&quot;el&quot;: '##app'...}" />
+            <marker date="1493109194000" expanded="true" signature="2775:3386" ph="{...}" />
+            <marker date="1493109194000" expanded="true" signature="2812:3248" ph="{...}" />
+            <marker date="1493109194000" expanded="true" signature="3294:3380" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/select/select.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2434">
+          <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+          <folding>
+            <marker date="1492970687000" expanded="true" signature="2512:2589" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="2627:2730" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="2658:2724" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="2769:2872" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="2800:2866" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="2910:3013" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="2941:3007" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="3273:5283" ph="{&quot;name&quot;: &quot;s-select&quot;...}" />
+            <marker date="1492970687000" expanded="true" signature="3298:3826" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="3318:3397" ph="{&quot;type&quot;: String...}" />
+            <marker date="1492970687000" expanded="true" signature="3424:3497" ph="{&quot;type&quot;: String...}" />
+            <marker date="1492970687000" expanded="true" signature="3543:3615" ph="{&quot;type&quot;: Array...}" />
+            <marker date="1492970687000" expanded="true" signature="3639:3715" ph="{&quot;type&quot;: Boolean...}" />
+            <marker date="1492970687000" expanded="true" signature="3739:3816" ph="{&quot;type&quot;: Boolean...}" />
+            <marker date="1492970687000" expanded="true" signature="3863:3951" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="3884:3940" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="3980:4700" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4001:4346" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4036:4162" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4202:4332" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4387:4690" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4438:4637" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4548:4619" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4728:5277" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4769:4785" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="4835:5021" ph="{...}" />
+            <marker date="1492970687000" expanded="true" signature="5068:5267" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package/picker/picker.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state relative-caret-position="1449">
           <caret line="210" column="32" lean-forward="false" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1833">
+          <caret line="123" column="26" lean-forward="false" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="-13">
+          <caret line="7" column="80" lean-forward="true" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/common/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package/picker/date-picker.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="414">
+          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding>
-            <element signature="e#2032#2072#0" expanded="true" />
-            <marker date="1493104299000" expanded="true" signature="2256:3600" ph="{...}" />
-            <marker date="1493104299000" expanded="true" signature="3542:3600" ph="{&quot;type&quot;: String...}" />
-            <marker date="1493104299000" expanded="true" signature="5057:5075" ph="{...}" />
-            <marker date="1493104299000" expanded="true" signature="5057:5263" ph="{...}" />
-            <marker date="1493104299000" expanded="true" signature="5057:5273" ph="{...}" />
-            <marker date="1493104299000" expanded="true" signature="5114:5249" ph="{...}" />
+            <element signature="e#2060#2100#0" expanded="true" />
           </folding>
         </state>
       </provider>
