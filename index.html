@@ -94,14 +94,14 @@
         </div>
 
         <div style="margin-top: 6px;">
-            <s-badge :value="6" :max="99">
-                <s-button type="hollow" >普通</s-button>
+            <s-badge :value="100" :max="99">
+                <s-button mode="normal raised" color-style="primary">普通</s-button>
             </s-badge>
-            <s-badge :value="101" :max="99" style="margin: 0 24px;">
-                <s-button type="colored" >越界</s-button>
+            <s-badge :value="6" :max="99" color-style="primary" style="margin: 0 24px;">
+                <s-button mode="normal flat" >越界</s-button>
             </s-badge>
-            <s-badge :value="66" :max="99" :is-dot="true">
-                <s-button type="plain" >点</s-button>
+            <s-badge :value="66" :max="99" color-style="primary" :is-dot="true">
+                <s-button mode="normal raised" >点</s-button>
             </s-badge>
         </div>
 
