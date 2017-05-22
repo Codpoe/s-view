@@ -17,16 +17,16 @@
         .s-button {
             float: left;
             &:first-child {
-                border-radius: 4px 0 0 4px;
+                border-radius: 2px 0 0 2px;
             }
             &:last-child {
-                border-radius: 0 4px 4px 0;
+                border-radius: 0 2px 2px 0;
             }
             &:not(:first-child, :last-child) {
                 border-radius: 0;
             }
-            &:not(:last-child) {
-                margin-right: 1px;
+            &:not(:first-child) {
+                margin-left: 1px;
             }
         }
     }
