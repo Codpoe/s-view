@@ -4,11 +4,11 @@
         :class="[
             's-button--' + type,
             isRaised ? 's-button--raised' : 's-button--flat',
-            disabled ? 's-button--' + type + '--disabled' : '',
-            !isHexColor ? ('s-button--' + colorStyle) : ''
+            !isHexColor ? ('s-button--' + colorStyle) : '',
+            disabled ? 's-button--disabled' : ''
         ]"
         :style="styleObject"
-        :disabled="disabled" 
+        :disabled="disabled"
         @click="onClick">
 
         <slot></slot>
@@ -25,8 +25,12 @@
         --button-fab-size: 56px;
         --button-fab-size-mini: 40px;
         --button-fab-font-size: 24px;
+        --button-fab-font-size-mini: 16px;
         --button-icon-size: 32px;
         --button-icon-size-mini: 24px;
+        --button-raised-background-disabled: #dcdcdc;
+        --button-raised-color-disabled: #a3a3a3;
+        --button-flat-color-disabled: #b9b9b9;
     }
 
     .s-button {
@@ -60,6 +64,7 @@
         width: var(--button-fab-size-mini);
         height: var(--button-fab-size-mini);
         border-radius: 50%;
+        font-size: var(--button-fab-font-size-mini);
     }
 
     .s-button--raised {
@@ -88,80 +93,21 @@
         color: var(--accent-color);
     }
 
-    .s-button--hollow {
-        border: 1px solid var(--primary-color);
-        background-color: transparent;
-        color: var(--primary-color);
-        &:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-    }
-
-    .s-button--colored {
-        border: 1px solid var(--primary-color);
-        background-color: var(--primary-color);
-        color: var(--white);
-        &:hover {
-            background-color: var(--primary-light-color);
-            border-color: var(--primary-light-color);
-        }
-    }
-
-    .s-button--plain {
-        color: var(--primary-color);
-        &:hover {
-            color: var(--primary-light-color);
-        }
-    }
-
-    .s-button--xsmall {
-        font-size: 12px;
-        padding: 4px;
-    }
-
-    .s-button--small {
-        font-size: 12px;
-        padding: 6px 8px;
-    }
-
-    .s-button--normal {
-        font-size: 14px;
-        padding: 8px 14px;
-    }
-
-    .s-button--large {
-        font-size: 16px;
-        padding: 10px 16px;
-    }
-
-    .s-button--hollow--disabled {
+    .s-button--disabled {
         cursor: default;
-        border-color: var(--extra-light-silver);
-        color: var(--extra-light-silver);
-        &:hover {
-            background-color: var(--white);
-            color: var(--extra-light-silver);
-        }
     }
 
-    .s-button--colored--disabled {
+    .s-button--raised.s-button--disabled {
+        background: var(--button-raised-background-disabled);
+        color: var(--button-raised-color-disabled);
+        box-shadow: none;
         cursor: default;
-        border-color: var(--extra-light-silver);
-        background-color: var(--extra-light-gray);
-        color: var(--extra-light-silver);
-        &:hover {
-            background-color: var(--extra-light-gray);
-            border-color: var(--extra-light-silver);
-        }
     }
 
-    .s-button--plain--disabled {
+    .s-button--flat.s-button--disabled {
+        background: transparent;
+        color: var(--button-flat-color-disabled);
         cursor: default;
-        color: var(--extra-light-silver);
-        &:hover {
-            color: var(--extra-light-silver);
-        }
     }
 </style>
 
@@ -174,18 +120,10 @@
                 type: String,
                 default: 'normal raised'
             },
-            colorStyle: {
+            colorStyle: { // primary, accent or the hex color
                 type: String,
                 default: 'primary'
             },
-            // type: { // hollow, colored, plain
-            //     type: String,
-            //     default: "hollow"
-            // },
-            // size: { // xsmall, small, normal, large
-            //     type: String,
-            //     default: "normal"
-            // },
             disabled: { // true or false
                 type: Boolean,
                 default: false
@@ -215,7 +153,7 @@
                 return this.colorStyle.indexOf('#') === 0;
             },
             styleObject: function() {
-                return this.colorStyle.indexOf('#') === 0
+                return (!this.disabled && this.colorStyle.indexOf('#') === 0)
                     ? (
                         this.isRaised
                         ? {
