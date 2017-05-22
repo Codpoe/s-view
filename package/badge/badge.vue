@@ -4,7 +4,7 @@
              isDot ? 's-badge--dot' : ''
          ]">
         <slot></slot>
-        <sup v-show="!hidden && (content || isDot)" class="s-badge__inner">
+        <sup v-show="!hidden && (content || isDot)" class="s-badge__content">
             {{ content }}
         </sup>
     </div>
@@ -12,11 +12,19 @@
 
 <style lang="postcss">
     @import "../common/common.css";
+    :root {
+        --badge-dot-size: 10px;
+        --badge-size: 22px;
+        --badge-padding: 2px;
+        --badge-font-size: 12px;
+    }
 
     .s-badge {
         display: inline-block;
         position: relative;
-        .s-badge__inner {
+        .s-badge__content {
+            min-width: var(--badge-size);
+            height: var(--badge-size);
             position: absolute;
             top: 0;
             right: 0;
@@ -24,20 +32,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid var(--white);
-            border-radius: 9px;
-            height: 18px;
+            border-radius: 11px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
             padding: 0 6px;
-            background-color: var(--error-color);
+            background-color: var(--accent-color);
             color: var(--white);
-            font-size: 12px;
+            font-size: var(--badge-font-size);
         }
     }
 
     .s-badge--dot {
-        .s-badge__inner {
-            width: 10px;
-            height: 10px;
+        .s-badge__content {
+            min-width: 12px;
+            height: 12px;
             padding: 0px;
             border-radius: 50%;
         }

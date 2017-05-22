@@ -7,6 +7,10 @@
 <style lang="postcss">
     @import "../common/common.css";
 
+    .s-button-group {
+        display: inline-block;
+    }
+
     .s-button-group:after {
         content: "";
         display: block;
