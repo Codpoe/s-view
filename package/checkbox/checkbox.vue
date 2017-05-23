@@ -20,6 +20,7 @@
         --checkbox-size: 16px;
         --checkbox-off-color: #737373;
         --checkbox-label-color: #737373;
+        --checkbox-color-disabled: #b9b9b9;
         --checkbox-anim-duration: 0.3s;
     }
 
@@ -90,21 +91,24 @@
 
     .s-checkbox--disabled {
         cursor: default;
-        .s-checkbox__indicator {
-            border-color: var(--extra-light-silver);
-            &:hover {
-                border-color: var(--extra-light-silver);
+        .s-checkbox_indicator {
+            border-color: var(--checkbox-color-disabled);
+            &:before {
+                border-color: var(--checkbox-color-disabled);
             }
         }
         label {
-            color: var(--extra-light-silver);
+            color: var(--checkbox-color-disabled);
             cursor: default;
         }
     }
 
     .s-checkbox--checked.s-checkbox--disabled {
-        .s-checkbox__indicator {
-            background: var(--extra-light-silver);
+        .s-checkbox_indicator {
+            border-color: var(--checkbox-color-disabled);
+            &:before {
+                border-color: var(--checkbox-color-disabled);
+            }
         }
     }
 
