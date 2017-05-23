@@ -5,7 +5,7 @@
              model ? 's-switch--true' : 's-switch--false',
              disabled ? 's-switch--disabled' : ''
          ]"
-         @click="handleClick">
+         @click="onClick">
         <div class="s-switch__track">
             <div class="s-switch__indicator"></div>
         </div>
@@ -156,7 +156,7 @@
         },
 
         methods: {
-            handleClick: function (ev) {
+            onClick: function (ev) {
                 this.model = !this.model;
             }
         }
