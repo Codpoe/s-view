@@ -3,7 +3,7 @@
           :class="[
               isChecked ? 's-radio--checked' : '',
               disabled ? 's-radio--disabled' : ''
-          ]" @click="handleClick">
+          ]" @click="onClick">
         <div class="s-radio_indicator"></div>
         <input type="radio" :name="name" :value="label" v-model="model" :disabled="disabled">
         <label><slot></slot></label>
@@ -151,7 +151,7 @@
         },
 
         methods: {
-            handleClick: function (ev) {
+            onClick: function (ev) {
                 if (!this.disabled) {
                     this.model = this.label;
                 }
