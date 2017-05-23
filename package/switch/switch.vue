@@ -1,13 +1,12 @@
 <template>
     <div class="s-switch"
          :class="[
-             's-switch--' + size,
              model ? 's-switch--true' : 's-switch--false',
              disabled ? 's-switch--disabled' : ''
          ]"
          @click="onClick">
-        <div class="s-switch__track">
-            <div class="s-switch__indicator"></div>
+        <div class="s-switch_track">
+            <div class="s-switch_thumb"></div>
         </div>
     </div>
 </template>
@@ -15,22 +14,38 @@
 <style lang="postcss">
     @import "../common/common.css";
 
+    :root {
+        --switch-track-width: 28px;
+        --switch-track-height: 12px;
+        --switch-thumb-size: 16px;
+        --switch-track-color--false: #dcdcdc;
+        --switch-thumb-color--false: #a3a3a3;
+    }
+
     .s-switch {
-        display: inline-block;
-        padding: 2px;
         position: relative;
+        width: calc(var(--switch-thumb-size) * 2);
+        height: var(--switch-thumb-size);
         cursor: pointer;
-        .s-switch__track {
+        display: inline-flex;
+        align-items: center;
+        .s-switch_track {
+            width: var(--switch-track-width);
+            height: var(--switch-track-height);
+            border-radius: 6px;
+            background: var(--light-gray);
+            transition: all 0.25s;
             display: inline-flex;
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
-            background: var(--light-gray);
-            transition: all 0.25s;
-            .s-switch__indicator {
+            .s-switch_thumb {
                 position: relative;
                 left: -2px;
+                width: var(--switch-thumb-size);
+                height: var(--switch-thumb-size);
                 border-radius: 50%;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
                 background: var(--extra-light-silver);
                 transition: all 0.25s;
             }
@@ -38,78 +53,45 @@
     }
 
     .s-switch--false {
-        .s-switch__track {
-            background: var(--light-gray);
-            .s-switch__indicator {
-                background: var(--extra-light-silver);
-                animation: s-switch__indicator-anim--false 0.25s;
+        .s-switch_track {
+            background: var(--switch-track-color--false);
+            .s-switch_thumb {
+                background: var(--switch-thumb-color--false);
+                animation: s-switch_thumb--false 0.25s;
                 animation-fill-mode: both;
             }
         }
     }
 
     .s-switch--true {
-        .s-switch__track {
-            background: var(--primary-extra-light-color);
-            .s-switch__indicator {
+        .s-switch_track {
+            background: var(--primary-extra-light);
+            .s-switch_thumb {
                 background: var(--primary-color);
-                animation: s-switch__indicator-anim--true 0.25s;
+                animation: s-switch_thumb--true 0.25s;
                 animation-fill-mode: both;
             }
         }
     }
 
-    .s-switch--small {
-        .s-switch__track {
-
-        }
-        .s-switch__indicator {
-
-        }
-    }
-
-    .s-switch--normal {
-        .s-switch__track {
-            width: 28px;
-            height: 12px;
-            border-radius: 6px;
-            .s-switch__indicator {
-                width: 16px;
-                height: 16px;
-            }
-        }
-    }
-
-    .s-switch--large {
-        .s-switch__track {
-            width: 36px;
-            height: 16px;
-            border-radius: 8px;
-        }
-        .s-switch__indicator {
-            width: 20px;
-            height: 20px;
-        }
-    }
-
-    @keyframes s-switch__indicator-anim--false {
+    @keyframes s-switch_thumb--false {
         0% {
-            transform: translate(16px) scale(1);
+            transform: translateX(16px) scale(1);
         }
         50% {
-            transform: translateX(8px) scale(0.75);
+            transform: translateX(8px) scale(0.8);
         }
         100% {
             transform: scale(1);
         }
     }
 
-    @keyframes s-switch__indicator-anim--true {
+    @keyframes s-switch_thumb--true {
         0% {
             transform: scale(1);
         }
         50% {
-            transform: translateX(8px) scale(0.75);
+            transform: translateX(8px) scale(0.8);
         }
         100% {
             transform: translateX(16px) scale(1);
