@@ -20,6 +20,7 @@
         --checkbox-size: 16px;
         --checkbox-off-color: #737373;
         --checkbox-label-color: #737373;
+        --checkbox-anim-duration: 0.3s;
     }
 
     .s-checkbox {
@@ -33,7 +34,7 @@
             margin-right: 10px;
             border: 2px solid var(--checkbox-off-color);
             border-radius: 2px;
-            transition: all 0.2s;
+            transition: all 0.25s;
             &:hover {
                 border-color: var(--primary-color);
             }
@@ -47,7 +48,7 @@
                 height: var(--checkbox-size);
                 border: 2px solid var(--checkbox-off-color);
                 border-radius: 2px;
-                transition: all 0.2s;
+                transition: all calc(var(--checkbox-anim-duration) / 2);
             }
         }
         input {
@@ -62,7 +63,7 @@
 
     .s-checkbox--checked {
         .s-checkbox_indicator {
-            animation: s-checkbox_indicator 0.4s;
+            animation: s-checkbox_indicator var(--checkbox-anim-duration);
             &:before {
                 border-width: 8px;
                 border-color: var(--primary-color);
@@ -80,8 +81,8 @@
                 border-right: none;
                 border-radius: 2px;
                 transform: scale(0);
-                animation: s-checkbox_indicator_inner 0.2s;
-                animation-delay: 0.2s;
+                animation: s-checkbox_indicator_inner calc(var(--checkbox-anim-duration) / 2);
+                animation-delay: calc(var(--checkbox-anim-duration) / 2);
                 animation-fill-mode: forwards;
             }
         }
@@ -149,7 +150,9 @@
         },
 
         data: function () {
-            return {};
+            return {
+
+            };
         },
 
         computed: {
