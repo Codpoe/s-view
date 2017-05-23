@@ -4,8 +4,10 @@
               isChecked ? 's-checkbox--checked' : '',
               disabled ? 's-checkbox--disabled' : ''
           ]"
-          @click="handleClick">
-        <div class="s-checkbox__indicator"></div>
+          @click="onClick">
+        <div class="s-checkbox_indicator">
+            <div class="s-checkbox_indicator_inner"></div>
+        </div>
         <input type="checkbox" :value="label" v-model="model" :disabled="disabled">
         <label><slot></slot></label>
     </div>
@@ -14,20 +16,38 @@
 <style lang="postcss">
     @import "../common/common.css";
 
+    :root {
+        --checkbox-size: 16px;
+        --checkbox-off-color: #737373;
+        --checkbox-label-color: #737373;
+    }
+
     .s-checkbox {
         display: inline-flex;
         align-items: center;
         cursor: pointer;
-        .s-checkbox__indicator {
+        .s-checkbox_indicator {
             position: relative;
-            width: 16px;
-            height: 16px;
+            width: var(--checkbox-size);
+            height: var(--checkbox-size);
             margin-right: 10px;
-            border: 1px solid var(--extra-light-silver);
+            border: 2px solid var(--checkbox-off-color);
             border-radius: 2px;
-            transition: all 0.25s;
+            transition: all 0.2s;
             &:hover {
                 border-color: var(--primary-color);
+            }
+            &:before {
+                content: "";
+                box-sizing: border-box;
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                width: var(--checkbox-size);
+                height: var(--checkbox-size);
+                border: 2px solid var(--checkbox-off-color);
+                border-radius: 2px;
+                transition: all 0.2s;
             }
         }
         input {
@@ -35,28 +55,34 @@
         }
         label {
             font-size: 14px;
-            color: var(--extra-light-black);
+            color: var(--checkbox-label-color);
             cursor: pointer;
         }
     }
 
     .s-checkbox--checked {
-        .s-checkbox__indicator {
-            border-color: var(--primary-color);
-            background: var(--primary-color);
+        .s-checkbox_indicator {
+            animation: s-checkbox_indicator 0.4s;
+            &:before {
+                border-width: 8px;
+                border-color: var(--primary-color);
+            }
             &:after {
                 content: "";
                 position: absolute;
-                top:3px;
-                left: 2px;
-                width: 8px;
-                height: 4px;
-                border: 2px solid var(--white);
+                box-sizing: border-box;
+                top: 2px;
+                left: 1px;
+                width: 10px;
+                height: 6px;
+                border: 2px solid white;
                 border-top: none;
                 border-right: none;
                 border-radius: 2px;
-                transform: rotate(-45deg);
-                animation: s-checkbox__indicator--anim 0.25s;
+                transform: scale(0);
+                animation: s-checkbox_indicator_inner 0.2s;
+                animation-delay: 0.2s;
+                animation-fill-mode: forwards;
             }
         }
     }
@@ -81,13 +107,25 @@
         }
     }
 
-    @keyframes s-checkbox__indicator--anim {
+    @keyframes s-checkbox_indicator {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(0.8);
+
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes s-checkbox_indicator_inner {
         0% {
             transform: rotate(-45deg) scale(0);
         }
         100% {
             transform: rotate(-45deg) scale(1);
-
         }
     }
 </style>
@@ -132,7 +170,7 @@
         },
 
         methods: {
-            handleClick: function (ev) {
+            onClick: function (ev) {
                 if (!this.disabled) {
                     if (this.isChecked) {
                         let index = this.value.indexOf(this.label);

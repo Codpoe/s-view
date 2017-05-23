@@ -17,6 +17,7 @@
 
 <style lang="postcss">
     @import "../common/common.css";
+    
     :root {
         --buttom-min-width: 64px;
         --button-height: 36px;
