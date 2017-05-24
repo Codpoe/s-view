@@ -45,7 +45,7 @@
                 width: var(--switch-thumb-size);
                 height: var(--switch-thumb-size);
                 border-radius: 50%;
-                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
                 background: var(--extra-light-silver);
                 transition: all 0.25s;
             }
@@ -71,6 +71,17 @@
                 animation: s-switch_thumb--true 0.25s;
                 animation-fill-mode: both;
             }
+        }
+    }
+
+    .s-switch--disabled {
+        cursor: default;
+        .s-switch_track {
+            background: var(--switch-track-color--false);
+            .s-switch_thumb {
+                background: var(--switch-thumb-color--false);
+                box-shadow: none;
+            }   
         }
     }
 
@@ -135,7 +146,9 @@
 
         methods: {
             onClick: function (ev) {
-                this.model = !this.model;
+                if (!this.disabled) {
+                    this.model = !this.model;
+                }
             }
         }
     }
