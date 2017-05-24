@@ -104,10 +104,6 @@
         name: "s-switch",
 
         props: {
-            size: { // small, normal, large
-                type: String,
-                default: "normal"
-            },
             value: {
                 type: Boolean,
                 default: false
