@@ -1,14 +1,13 @@
-var path = require("path");
-var webpack = require("webpack");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require('path');
+var webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: "./src/main.js"
+        sview: './src/js/sview.js',
+        index: './src/js/index.js'
     },
     output: {
-        // path: __dirname + "/dist",
-        // filename: "[name].bundle.js"
         path: path.resolve(__dirname, "./dist"),
         publicPath: "/dist/",
         filename: "[name].bundle.js"
@@ -22,14 +21,6 @@ module.exports = {
                     loaders: {
                         postcss: ExtractTextPlugin.extract({
                             use: "css-loader",
-                                // loader: "css-loader",
-                                // options: {
-                                //     postcss: [
-                                //         require("postcss-cssnext")(),
-                                //         require("precss")()
-                                //     ]
-                                // }
-                            // },
                             fallback: "vue-style-loader"
                         })
                     },
@@ -41,37 +32,53 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                use: [{
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["es2015"]
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["es2015"]
+                        }
                     }
-                }],
+                ],
                 exclude: /node_modules/
             },
-            // {
-                // test: /\.css$/,
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        {
+                            loader: "css-loader"
+                        },
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                                plugins: [
+                                    require("postcss-cssnext")(),
+                                    require("precss")()
+                                ]
+                            }
+                        }
+                    ]    
+                })
                 // use: [
                 //     {
-                //         loader: "style-loader",
+                //         loader: 'style-loader'
                 //     },
                 //     {
-                //         loader: "css-loader",
-                //         options: {
-
-                //         }
+                //         loader: 'css-loader'
                 //     },
                 //     {
-                //         loader: "postcss-loader",
+                //         loader: 'postcss-loader',
                 //         options: {
                 //             plugins: [
-                //                 require("postcss-cssnext")(),
-                //                 require("precss")()
+                //                 require('postcss-cssnext')(),
+                //                 require('precss')()
                 //             ]
                 //         }
                 //     }
                 // ]
-            // },
+            },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
                 use: [
@@ -87,7 +94,7 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: "sview-style.css"
+            filename: "[name].bundle.css"
         })
     ],
     resolve: {

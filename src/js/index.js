@@ -1,31 +1,9 @@
-import Vue from 'vue'
-import SButton from "../package/button/button.vue";
-import SButtonGroup from "../package/button-group/button-group.vue";
-import SRadio from "../package/radio/radio.vue";
-import SCheckbox from "../package/checkbox/checkbox.vue";
-import SInput from "../package/input/input.vue";
-import SDropDownMenu from "../package/drop-down-menu/drop-down-menu.vue";
-import SSelect from "../package/select/select.vue";
-import SSwitch from "../package/switch/switch.vue";
-import SSlider from "../package/slider/slider.vue";
-import SBadge from "../package/badge/badge.vue";
-import SIcon from "../package/icon/icon.vue";
-import SPicker from "../package/picker/picker.vue";
-import SDatePicker from "../package/picker/date-picker.vue";
+import Vue from 'vue';
+import Sview from './sview.js';
 
-Vue.component(SButton.name, SButton);
-Vue.component(SButtonGroup.name, SButtonGroup);
-Vue.component(SRadio.name, SRadio);
-Vue.component(SCheckbox.name, SCheckbox);
-Vue.component(SInput.name, SInput);
-Vue.component(SDropDownMenu.name, SDropDownMenu);
-Vue.component(SSelect.name, SSelect);
-Vue.component(SSwitch.name, SSwitch);
-Vue.component(SSlider.name, SSlider);
-Vue.component(SBadge.name, SBadge);
-Vue.component(SIcon.name, SIcon);
-Vue.component(SPicker.name, SPicker);
-Vue.component(SDatePicker.name, SDatePicker);
+import '../css/index.css';
+
+Vue.use(Sview);
 
 let app = new Vue({
     el: '#app',
@@ -97,6 +75,3 @@ let app = new Vue({
         }
     }
 });
-
-
-
