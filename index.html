@@ -83,15 +83,12 @@
         </div>
 
         <div>
-            <s-switch size="normal" v-model="switched"></s-switch>
+            <s-slider v-model="slided" :min="0" :max="100" :step="20" :track-width="200" :show-stops="true"></s-slider>
+            <s-slider v-model="slided" :min="0" :max="100" :step="20" :track-width="200" :show-stops="true" :show-value="true"></s-slider>
         </div>
 
         <div>
-            <s-slider v-model="slided" :min="0" :max="100" :step-value="20" :track-width="200" :should-show-stops="true"></s-slider>
-        </div>
-
-        <div>
-            <s-slider v-model="slided" :min="0" :max="100" :step-value="20" :track-width="200" :disabled="true"></s-slider>
+            <s-slider v-model="slided" :min="0" :max="100" :step="20" :track-width="200" :disabled="true"></s-slider>
         </div>
 
         <div style="margin-top: 6px;">

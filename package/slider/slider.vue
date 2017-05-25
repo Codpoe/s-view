@@ -1,33 +1,34 @@
 <template>
     <div class="s-slider"
          :class="[
-             (shouldShowValue || isDragging) ? 's-slider--dragging' : '',
+             isDragging ? 's-slider--dragging' : '',
+             toShowValue ? 's-slider--show-value' : '',
              disabled ? 's-slider--disabled' : ''
-         ]">
+         ]"
+         @click="onSliderClick">
 
-        <div class="s-slider__track"
+        <div class="s-slider_track"
              :class="[
-                 shouldShowStops ? 's-slider__track--stops' : ''
+                 showStops ? 's-slider_track--stops' : ''
              ]"
-             :style="{ width: trackWidth + 'px' }"
-             @click="onTrackClick">
+             :style="{ width: trackWidth + 'px' }">
 
-            <div v-if="shouldShowStops"
-                 class="s-slider__track__stops">
+            <div v-if="showStops"
+                 class="s-slider_track_stops">
                 <div v-for="n in (stepCount + 1)"
-                     class="s-slider__track__stop"
+                     class="s-slider_track_stop"
                      :style="{ opacity: n === 1 || n === stepCount + 1 ? 0 : 1 }">
                 </div>
             </div>
 
-            <div class="s-slider__indicator"
+            <div class="s-slider_indicator"
                  :style="{ width: indicatorWidth }">
 
-                <div class="s-slider__indicator__tooltip">
-                    {{ (shouldShowValue || isDragging) ? model : "" }}
+                <div class="s-slider_indicator_tooltip">
+                    {{ toShowValue ? model : "" }}
                 </div>
 
-                <div class="s-slider__indicator__point"
+                <div class="s-slider_indicator_thumb"
                      @mouseenter="onMouseEnter"
                      @mouseleave="onMouseLeave"
                      @mousedown="onMouseDown"
@@ -40,20 +41,25 @@
 
 <style lang="postcss">
     @import "../common/common.css";
-    /*background: rgba(32, 160, 255, 0.25);*/
+
+    :root {
+        --slider-track-height: 2px;
+        --slider-thumb-size: 12px;
+        --slider-track-color: #b9b9b9;
+    }
 
     .s-slider {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        padding: 8px;
-        .s-slider__track {
-            background: var(--light-gray);
-            height: 6px;
-            border-radius: 3px;
+        padding: calc((var(--slider-thumb-size) - var(--slider-track-height)) / 2);
+        .s-slider_track {
+            background: var(--slider-track-color);
+            height: var(--slider-track-height);
+            border-radius: calc(var(--slider-track-height) / 2);
             cursor: pointer;
             position: relative;
-            .s-slider__track__stops {
+            .s-slider_track_stops {
                 position: absolute;
                 width: 100%;
                 height: 100%;
@@ -61,41 +67,42 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: stretch;
-                .s-slider__track__stop {
+                .s-slider_track_stop {
                     width: 2px;
-                    background: var(--extra-light-silver);
+                    background: var(--primary-extra-light);
                 }
             }
-            .s-slider__indicator {
+            .s-slider_indicator {
                 height: 100%;
                 background: var(--primary-color);
-                border-radius: 3px;
+                border-radius: calc(var(--slider-track-height) / 2);
                 position: relative;
-                .s-slider__indicator__tooltip {
+                .s-slider_indicator_tooltip {
                     position: absolute;
-                    top: -5px;
-                    right: -8px;
+                    top: -calc((var(--slider-thumb-size) - var(--slider-track-height)) / 2);
+                    right: -calc((var(--slider-thumb-size) - var(--slider-track-height)) / 2);
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    min-width: 16px;
-                    min-height: 16px;
-                    padding: 0 6px;
-                    border-radius: 8px;
+                    min-width: var(--slider-thumb-size);
+                    min-height: var(--slider-thumb-size);
+                    padding: 2px 6px;
+                    border-radius: calc(var(--slider-thumb-size) / 2);
                     background: var(--primary-color);
                     font-size: 12px;
                     color: var(--white);
                     user-select: none;
                     transition: all 0.25s;
                 }
-                .s-slider__indicator__point {
+                .s-slider_indicator_thumb {
                     position: absolute;
-                    top: -5px;
-                    right: -8px;
-                    width: 16px;
-                    height: 16px;
+                    top: -calc((var(--slider-thumb-size) - var(--slider-track-height)) / 2);
+                    right: -calc((var(--slider-thumb-size) - var(--slider-track-height)) / 2);
+                    width: var(--slider-thumb-size);
+                    height: var(--slider-thumb-size);
                     border-radius: 50%;
-                    background: rgba(32, 160, 255, 0.25);
+                    background: var(--primary-color);
+                    opacity: 0.25;
                     transition: all 0.25s;
                 }
             }
@@ -103,20 +110,29 @@
     }
 
     .s-slider--dragging {
-        .s-slider__indicator__tooltip {
+        .s-slider_indicator_tooltip {
+            transform: scale(1.4);
+        }
+        .s-slider_indicator_thumb {
+            transform: scale(1.4);
+        }
+    }
+
+    .s-slider--show-value {
+        .s-slider_indicator_tooltip {
             transform: translateY(-20px);
         }
     }
 
     .s-slider--disabled {
-        .s-slider__track {
+        .s-slider_track {
             cursor: default;
-            .s-slider__indicator {
+            .s-slider_indicator {
                 background: var(--extra-light-silver);
-                .s-slider__indicator__tooltip {
+                .s-slider_indicator_tooltip {
                     background: var(--extra-light-silver);
                 }
-                .s-slider__indicator__point {
+                .s-slider_indicator_thumb {
                     background: var(--extra-light-silver);
                 }
             }
@@ -179,7 +195,7 @@
                 type: Number,
                 default: 100
             },
-            stepValue: {
+            step: {
                 type: Number,
                 default: 1
             },
@@ -187,7 +203,11 @@
                 type: Number,
                 default: 100
             },
-            shouldShowStops: {
+            showStops: {
+                type: Boolean,
+                default: false
+            },
+            showValue: {
                 type: Boolean,
                 default: false
             },
@@ -199,7 +219,7 @@
 
         data: function () {
             return {
-                shouldShowValue: false,
+                toShowValue: false,
                 isDragging: false,
                 startX: 0,
                 currentX: 0
@@ -210,13 +230,13 @@
             model: {
                 get: function () {
                     console.log("slider: get model: " + this.value);
-                    if (this.value < this.min) {
-                        return this.min;
-                    } else if (this.value > this.max) {
-                        return this.max;
-                    } else {
-                        return this.value;
-                    }
+                    return this.value < this.min
+                        ? this.min
+                        : (
+                            this.value > this.max
+                                ? this.max
+                                : this.value
+                        );
                 },
                 set: function (value) {
                     console.log("slider: set model: " + value);
@@ -226,8 +246,8 @@
 
             stepCount: function () {
                 let length = this.max - this.min;
-                if (length % this.stepValue === 0) {
-                    return length / this.stepValue;
+                if (length % this.step === 0) {
+                    return length / this.step;
                 } else {
                     return length;
                 }
@@ -244,13 +264,13 @@
 
         methods: {
             onMouseEnter: function (ev) {
-                if (!this.disabled) {
-                    this.shouldShowValue = true;
+                if (!this.disabled && this.showValue) {
+                    this.toShowValue = true;
                 }
             },
 
             onMouseLeave: function (ev) {
-                this.shouldShowValue = false;
+                this.toShowValue = (this.toShowValue && this.isDragging) ? true : false;
             },
 
             onMouseDown: function (ev) {
@@ -267,7 +287,7 @@
                     let tempValue;
                     let diffValue;
                     this.currentX = ev.clientX;
-                    diffValue = Math.round((this.currentX - this.startX) / (this.trackWidth / this.stepCount)) * this.stepValue;
+                    diffValue = Math.round((this.currentX - this.startX) / (this.trackWidth / this.stepCount)) * this.step;
                     tempValue = this.model + diffValue;
 
                     if (this.currentX > this.startX && this.model !== this.max
@@ -279,7 +299,7 @@
                         } else {
                             this.model = tempValue;
                         }
-                        this.startX += diffValue / this.stepValue * (this.trackWidth / this.stepCount);
+                        this.startX += diffValue / this.step * (this.trackWidth / this.stepCount);
                     }
                 }
             },
@@ -287,22 +307,18 @@
             onDragEnd: function (ev) {
                 if (this.isDragging) {
                     this.isDragging = false;
+                    this.toShowValue = false;
                     window.removeEventListener("mousemove", this.onDragging);
                     window.removeEventListener("mouseup", this.onDragEnd);
                 }
             },
 
-            onTrackClick: function (ev) {
+            onSliderClick: function (ev) {
                 if (!this.disabled) {
                     let diffX;
                     let diffValue;
-                    if (ev.target.classList[0] === "s-slider__track") {
-                        diffX = ev.clientX - ev.target.getBoundingClientRect().left;
-                    } else {
-                        diffX = ev.clientX - ev.target.offsetParent.getBoundingClientRect().left;
-                    }
-                    diffValue = Math.round(diffX / (this.trackWidth / this.stepCount))
-                        * this.stepValue;
+                    diffX = ev.clientX - ev.target.getBoundingClientRect().left;
+                    diffValue = Math.round(diffX / (this.trackWidth / this.stepCount)) * this.step;
                     this.model = this.min + diffValue;
                 }
             }
