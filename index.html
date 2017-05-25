@@ -4,12 +4,31 @@
     <meta charset="utf-8">
     <title>sview</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/sview.bundle.css">
-    <link rel="stylesheet" href="/dist/index.bundle.css">
+    <link rel="stylesheet" href="/dist/sview.bundle.css"/>
+    <link rel="stylesheet" href="/dist/index.bundle.css"/>
 </head>
 <body>
-    <div id="app" style="margin: 16px">
-        <s-button mode="normal raised" color-style="primary" @click="handleClick" :disabled="false">
+    <div id="app">
+        <nav id="nav">
+            <router-link to="/badge">Badge</router-link>
+        </nav>
+
+        <div id="main">
+            <div id="to-previous">
+
+            </div>
+            <div id="content">
+                <router-view></router-view>
+            </div>
+            <div id="to-next">
+
+            </div>
+        </div>
+    </div>
+
+
+
+        <!--<s-button mode="normal raised" color-style="primary" @click="handleClick" :disabled="false">
             <s-icon name="github"></s-icon> GitHub
         </s-button>
         <s-button mode="normal raised" color-style="accent" @click="handleClick" :disabled="false">
@@ -116,9 +135,8 @@
         <div>
             <s-date-picker v-model="pickedDate" placeholder="请选择日期"></s-date-picker>
         </div>
-    </div>
+    </div>-->
 
-    <!--<script src="/dist/sview.bundle.js"></script>-->
     <script src="/dist/index.bundle.js"></script>
 </body>
 </html>
