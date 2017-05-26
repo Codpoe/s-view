@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Sview from './sview.js';
-import Badge from '../routes/badge.vue';
+import Badge from '../routes/badge.md';
 
 import '../css/index.css';
 

@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const marked = require('marked');
+const renderer = new marked.Renderer();
 
 module.exports = {
     entry: {
@@ -89,6 +91,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.md$/,
+                loader: 'vue-markdown-loader'
             }
         ]
     },

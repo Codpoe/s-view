@@ -10,14 +10,17 @@
 <body>
     <div id="app">
         <nav id="nav">
-            <router-link to="/badge">Badge</router-link>
+            <div class="nav-content">
+                <router-link to="/badge">Badge</router-link>
+                <router-link to="/button">Button</router-link>
+            </div>
         </nav>
 
         <div id="main">
             <div id="to-previous">
 
             </div>
-            <div id="content">
+            <div id="main-content">
                 <router-view></router-view>
             </div>
             <div id="to-next">

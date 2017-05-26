@@ -10,7 +10,8 @@
 	},
 	"dependencies": {
 		"vue": "^2.2.1",
-		"vue-router": "2.5.3"
+		"vue-router": "2.5.3",
+		"marked": "0.3.6"
 	},
 	"devDependencies": {
 		"babel-core": "^6.0.0",
@@ -27,6 +28,9 @@
 		"vue-template-compiler": "^2.2.1",
 		"webpack": "^2.2.0",
 		"webpack-dev-server": "^2.2.0",
-		"extract-text-webpack-plugin": "^2.1.0"
+		"extract-text-webpack-plugin": "^2.1.0",
+		"markdown-loader": "2.0.0",
+		"html-loader": "0.4.5",
+		"vue-markdown-loader": "1.0.0"
 	}
 }
