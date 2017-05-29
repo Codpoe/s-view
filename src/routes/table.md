@@ -15,7 +15,7 @@
             head: 'Last Name'
         }]"
         :rows="[{
-            fullName: 'Wu Yifan abcd ef ghijklmn opqrs tuvwxyz',
+            fullName: 'Wu Yifan',
             firstName: 'Yifan',
             lastName: 'Wu'
         }, {
@@ -128,6 +128,73 @@
             firstName: 'Lei',
             lastName: 'Li'
         }]">
+    </s-table>
+</div>
+```
+
+## 带复选框的表格
+可以为`s-table`设置`checkable`属性，当`:checkable="true"`时，表格的最左列会变为复选框列，而最上面的复选框是全选框：
+
+<div class="demo">
+    <s-table
+        :columns="[{
+            key: 'fullName',
+            head: 'Full Name'
+        }, {
+            key: 'firstName',
+            head: 'First Name',
+            align: 'right'
+        }, {
+            key: 'lastName',
+            head: 'Last Name',
+            align: 'right'
+        }]"
+        :rows="[{
+            fullName: 'Wu Yifan',
+            firstName: 'Yifan',
+            lastName: 'Wu'
+        }, {
+            fullName: 'Han Meimei',
+            firstName: 'Meimei',
+            lastName: 'Han'
+        }, {
+            fullName: 'Li Lei',
+            firstName: 'Lei',
+            lastName: 'Li'
+        }]"
+        :checkable="true">
+    </s-table>
+</div>
+
+```
+<div class="demo">
+    <s-table
+        :columns="[{
+            key: 'fullName',
+            head: 'Full Name'
+        }, {
+            key: 'firstName',
+            head: 'First Name',
+            align: 'right'
+        }, {
+            key: 'lastName',
+            head: 'Last Name',
+            align: 'right'
+        }]"
+        :rows="[{
+            fullName: 'Wu Yifan',
+            firstName: 'Yifan',
+            lastName: 'Wu'
+        }, {
+            fullName: 'Han Meimei',
+            firstName: 'Meimei',
+            lastName: 'Han'
+        }, {
+            fullName: 'Li Lei',
+            firstName: 'Lei',
+            lastName: 'Li'
+        }]"
+        :checkable="true">
     </s-table>
 </div>
 ```

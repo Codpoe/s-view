@@ -37,6 +37,20 @@ body {
         min-width: 300px;
         height: 100%;
         box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.2);
+        a {
+            display: block;
+            padding: 16px 16px;
+            font-size: 14px;
+            color: #757575;
+            transition: all 0.24s;
+            &:hover {
+                color: #03a9f4;
+            }
+        }
+        .router-link-active {
+            color: #03a9f4;
+            text-decoration: underline;
+        }
     }
 }
 

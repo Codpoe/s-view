@@ -141,7 +141,7 @@
 
         props: {
             label: {
-                type: [String, Array]
+                type: [String, Number, Array]
             },
             value: {
                 type: Array,
@@ -155,7 +155,7 @@
 
         data: function () {
             return {
-
+                arrayIsChecked: false
             };
         },
 
@@ -172,7 +172,17 @@
             },
 
             isChecked: function () {
-                return this.value.indexOf(this.label) > -1;
+                if (typeof this.label === 'string' || typeof this.label === 'number') {
+                    return this.value.indexOf(this.label) > -1;
+                } else {
+                    let i = 0;
+                    for (; i < this.label.length; i ++) {
+                        if (this.value.indexOf(this.label[i]) < 0) {
+                            break;
+                        }
+                    }
+                    return i === this.label.length;
+                }
             }
         },
 
@@ -180,17 +190,26 @@
             onClick: function (ev) {
                 if (!this.disabled) {
                     if (this.isChecked) {
-                        if (typeof this.label === 'string') {
+                        if (typeof this.label === 'string' || typeof this.label === 'number') {
                             let index = this.value.indexOf(this.label);
                             this.value.splice(index, 1);
                         } else {
                             this.label.forEach((item) => {
                                 let index = this.value.indexOf(item);
                                 this.value.splice(index, 1);
-                            })
+                            });
                         }
                     } else {
-                        this.value.push(...this.label);
+                        if (typeof this.label === 'string' || typeof this.label === 'number') {
+                            this.value.push(this.label);
+                        } else {
+                            for (let i = 0; i < this.label.length; i ++) {
+                                if (this.value.indexOf(this.label[i]) < 0) {
+                                    this.value.push(this.label[i]);
+                                }
+                            }
+                            // this.value.push(...new Set(this.label));
+                        }
                     }
                     this.$emit("change", ev);
                 }

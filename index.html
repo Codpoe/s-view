@@ -11,7 +11,9 @@
     <div id="app">
         <nav id="nav">
             <div class="nav-content">
+                <router-link to="/introduction">Introduction</router-link>
                 <router-link to="/badge">Badge</router-link>
+                <router-link to="/checkbox">Checkbox</router-link>
                 <router-link to="/table">Table</router-link>
             </div>
         </nav>
@@ -20,7 +22,7 @@
             <div id="to-previous">
 
             </div>
-            <div id="main-content">
+            <div id="main-content" class="markdown">
                 <router-view></router-view>
             </div>
             <div id="to-next">

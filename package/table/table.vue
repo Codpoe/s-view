@@ -3,10 +3,10 @@
         <table cellspacing="0" cellpadding="0">
             <thead>
                 <tr>
-                    <th v-if="checkable">
-                        <s-checkbox label=""></s-checkbox>
-                    </th>
-                    <th 
+                    <td v-if="checkable">
+                        <s-checkbox :value="checked" :label="checkboxArray" style="padding: 0"></s-checkbox>
+                    </td>
+                    <td 
                         v-for="column in columns" 
                         :style="{
                             width: column.width || '150px',
@@ -15,12 +15,15 @@
                             's-table_cell--align-' + column.align
                         ]">
                         {{ column.head || '' }}
-                    </th>
+                    </td>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="row in rows">
-                    <td 
+                <tr v-for="(row, index) in rows">
+                    <td v-if="checkable">
+                        <s-checkbox :value="checked" :label="index"></s-checkbox>
+                    </td>
+                    <td
                         v-for="i in columns.length"
                         :class="[
                             's-table_cell--align-' + columns[i - 1].align
@@ -65,8 +68,8 @@
             }
         }
         td {
-            box-sizing: border-box;
             border-top: 1px double var(--table-divider-color);
+            vertical-align: middle;
             word-wrap: break-word;
             word-break: normal;
         }
@@ -119,11 +122,13 @@
 
         data() {
             return {
-
+                checked: [],
+                checkboxArray: []
             }
         },
 
         created() {
+            //  init columns width
             this.columns.forEach((column) => {
                 let { width } = column;
                 if (typeof width === 'undefined') {
@@ -133,6 +138,11 @@
                     column.width = width + 'px';
                 }
             });
+
+            // init checkboxArray
+            for (let i = 0; i < this.rows.length; i ++) {
+                this.checkboxArray.push(i);
+            }
         },
 
         methods: {
