@@ -11,6 +11,7 @@ import SBadge from "../../package/badge/badge.vue";
 import SIcon from "../../package/icon/icon.vue";
 import SPicker from "../../package/picker/picker.vue";
 import SDatePicker from "../../package/picker/date-picker.vue";
+import STable from '../../package/table/table.vue';
 
 const components = [
     SButton,
@@ -25,7 +26,8 @@ const components = [
     SBadge,
     SIcon,
     SPicker,
-    SDatePicker
+    SDatePicker,
+    STable
 ];
 
 const install = function (Vue) {
@@ -52,7 +54,8 @@ module.exports = {
     SBadge,
     SIcon,
     SPicker,
-    SDatePicker
+    SDatePicker,
+    STable
 };
 
 

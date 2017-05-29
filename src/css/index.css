@@ -1,10 +1,5 @@
 :root {
-    --heading-color: #333;
-    --code-bg-color: #EFF4F7;
-    --code-font-color: #03A9F4;
-    --h1-font-size: 1.625em;
-    --h2-font-size: 1.375em;
-    --h3-font-size: 1.125em;
+    
 }
 
 * {
@@ -34,7 +29,6 @@ body {
     order: 0;
     min-width: 300px;
     height: 100%;
-    box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.2);
     overflow-y: scroll;
     .nav-content {
         position: fixed;
@@ -42,6 +36,7 @@ body {
         left: 0;
         min-width: 300px;
         height: 100%;
+        box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -52,66 +47,12 @@ body {
 
 #main-content {
     padding: 0 70px;
-    h1, h2, h3 {
-        font-weight: 500;
-        color: var(--heading-color);
-        margin: 40px 0;
-    }
-
-    h1 {
-        font-size: var(--h1-font-size);
-    }
-
-    h2 {
-        font-size: var(--h2-font-size);
-    }
-
-    h3 {
-        font-size: var(--h3-font-size);
-    }
-
-    p {
-        font-size: 0.875em;
-        color: #555;
-        line-height: 1.75;
-        margin: 40px 0;
-    }
-
     .demo {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 60px 0;
     }
-
-    code {
-        background: var(--code-bg-color);
-        padding: 4px 2px;
-        border-radius: 2px;
-        margin: 0 2px;
-        font-size: 0.75em;
-        font-family: menlo, monospace;
-        color: var(--code-font-color);
-    }
-
-    pre {
-        margin: 40px 0;
-        background: var(--code-bg-color);
-        padding: 20px;
-        overflow-x: auto;
-        code {
-            margin: 0;
-            padding: 0;
-            color: #757575;
-            font-size: 0.75em;
-            line-height: 1.5;
-            overflow-x: auto;
-        }
-    }
-
-
-
-
 }
 
-
+@import './markdown.css';

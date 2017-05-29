@@ -141,7 +141,7 @@
 
         props: {
             label: {
-                type: String
+                type: [String, Array]
             },
             value: {
                 type: Array,
@@ -180,10 +180,17 @@
             onClick: function (ev) {
                 if (!this.disabled) {
                     if (this.isChecked) {
-                        let index = this.value.indexOf(this.label);
-                        this.value.splice(index, 1);
+                        if (typeof this.label === 'string') {
+                            let index = this.value.indexOf(this.label);
+                            this.value.splice(index, 1);
+                        } else {
+                            this.label.forEach((item) => {
+                                let index = this.value.indexOf(item);
+                                this.value.splice(index, 1);
+                            })
+                        }
                     } else {
-                        this.value.push(this.label);
+                        this.value.push(...this.label);
                     }
                     this.$emit("change", ev);
                 }

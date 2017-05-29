@@ -109,6 +109,7 @@ module.exports = {
         }
     },
     devServer: {
+        hot: true,
         historyApiFallback: true,
         noInfo: true
     },

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Sview from './sview.js';
 import Badge from '../routes/badge.md';
+import Table from '../routes/table.md';
 
 import '../css/index.css';
 
@@ -13,6 +14,10 @@ const router = new VueRouter({
         {
             path: '/badge',
             component: Badge
+        },
+        {
+            path: '/table',
+            component: Table
         }
     ]
 });
