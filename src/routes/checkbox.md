@@ -4,16 +4,16 @@
 
 <div class="demo">
     <div>
-        <s-checkbox :value="checked1" label="one">Item One</s-checkbox>&nbsp;
-        <s-checkbox :value="checked1" label="two">Item Two</s-checkbox>&nbsp;
-        <s-checkbox :value="checked1" label="three">Item Three</s-checkbox>&nbsp;
+        <s-checkbox v-model="checked1" label="one">Item One</s-checkbox>&nbsp;
+        <s-checkbox v-model="checked1" label="two">Item Two</s-checkbox>&nbsp;
+        <s-checkbox v-model="checked1" label="three">Item Three</s-checkbox>&nbsp;
         <br><br>
         checked: {{ checked1 }}
     </div>
 </div>
 
 ```
-<s-checkbox :value="checked1" label="one">Item One</s-checkbox>&nbsp;
+<s-checkbox v-model="checked1" label="one">Item One</s-checkbox>&nbsp;
 <s-checkbox :value="checked1" label="two">Item Two</s-checkbox>&nbsp;
 <s-checkbox :value="checked1" label="three">Item Three</s-checkbox>&nbsp;
 <br><br>
@@ -33,10 +33,10 @@ module.exports = {
 
 <div class="demo">
     <div>
-        <s-checkbox :value="checked2" :label="['one', 'two', 'three']">All</s-checkbox>&nbsp;
-        <s-checkbox :value="checked2" label="one">Item One</s-checkbox>&nbsp;
-        <s-checkbox :value="checked2" label="two">Item Two</s-checkbox>&nbsp;
-        <s-checkbox :value="checked2" label="three">Item Three</s-checkbox>&nbsp;
+        <s-checkbox v-model="checked2" :label="['one', 'two', 'three']">All</s-checkbox>&nbsp;
+        <s-checkbox v-model="checked2" label="one">Item One</s-checkbox>&nbsp;
+        <s-checkbox v-model="checked2" label="two">Item Two</s-checkbox>&nbsp;
+        <s-checkbox v-model="checked2" label="three">Item Three</s-checkbox>&nbsp;
         <br><br>
         checked: {{ checked2 }}
     </div>
