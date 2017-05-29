@@ -3,10 +3,10 @@
         <table cellspacing="0" cellpadding="0">
             <thead>
                 <tr>
-                    <td v-if="checkable">
-                        <s-checkbox :value="checked" :label="checkboxArray" style="padding: 0"></s-checkbox>
-                    </td>
-                    <td 
+                    <th v-if="checkable">
+                        <s-checkbox :value="checked" :label="checkboxArray" class="s-table_checkbox"></s-checkbox>
+                    </th>
+                    <th 
                         v-for="column in columns" 
                         :style="{
                             width: column.width || '150px',
@@ -15,13 +15,13 @@
                             's-table_cell--align-' + column.align
                         ]">
                         {{ column.head || '' }}
-                    </td>
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(row, index) in rows">
                     <td v-if="checkable">
-                        <s-checkbox :value="checked" :label="index"></s-checkbox>
+                        <s-checkbox :value="checked" :label="index" class="s-table_checkbox"></s-checkbox>
                     </td>
                     <td
                         v-for="i in columns.length"
@@ -84,13 +84,17 @@
             font-weight: 700;
         }
         td {
-            
+            font-size: var(--table-cell-font-size);
         }
         .s-table_cell--align-right {
             text-align: right;
         }
         .s-table_cell--align-center {
             text-align: center;
+        }
+        .s-table_checkbox {
+            position: relative;
+            top: 1px;
         }
     }
 </style>

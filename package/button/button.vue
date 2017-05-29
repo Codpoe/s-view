@@ -3,8 +3,8 @@
         class="s-button"
         :class="[
             's-button--' + type,
-            isRaised ? 's-button--raised' : 's-button--flat',
-            !isHexColor ? ('s-button--' + colorStyle) : '',
+            isFlat ? 's-button--flat' : 's-button--raised',
+            isAccent ? 's-button--accent' : 's-button--primary',
             disabled ? 's-button--disabled' : ''
         ]"
         :style="styleObject"
@@ -139,16 +139,28 @@
 
         computed: {
             type: function() {
-                return this.mode.indexOf('normal') !== -1
-                    ? 'normal'
-                    : (
-                        this.mode.indexOf('mini-fab') !== -1
-                        ? 'mini-fab'
-                        : 'fab'
-                    )
+                if (this.mode.indexOf('mini-fab') !== -1) {
+                    return 'mini-fab';
+                }
+                if (this.mode.indexOf('fab') !== -1) {
+                    return 'fab';
+                }
+                return 'normal';
+                // return this.mode.indexOf('normal') !== -1
+                //     ? 'normal'
+                //     : (
+                //         this.mode.indexOf('mini-fab') !== -1
+                //         ? 'mini-fab'
+                //         : 'fab'
+                //     )
             },
-            isRaised: function() {
-                return this.mode.indexOf('raised') !== -1;
+            isFlat: function() {
+                return this.mode.indexOf('flat') !== -1;
+            },
+            isAccent: function() {
+                if (this.colorStyle.indexOf('#') !== 0) {
+                    return this.colorStyle.indexOf('accent') !== -1;
+                }
             },
             isHexColor: function() {
                 return this.colorStyle.indexOf('#') === 0;
@@ -156,12 +168,12 @@
             styleObject: function() {
                 return (!this.disabled && this.colorStyle.indexOf('#') === 0)
                     ? (
-                        this.isRaised
+                        this.isFlat
                         ? {
-                            background: this.colorStyle
+                            color: this.colorStyle
                         }
                         : {
-                            color: this.colorStyle
+                            background: this.colorStyle
                         }
                     )
                     : {};

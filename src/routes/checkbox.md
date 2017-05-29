@@ -76,3 +76,39 @@ div class="demo">
 </script>
 ```
 
+## 配置
+
+<div class="demo">
+    <s-table
+        :columns="[{
+            key: 'argument',
+            head: '参数'
+        }, {
+            key: 'type',
+            head: '类型'
+        }, {
+            key: 'optional',
+            head: '可选值'
+        }, {
+            key: 'default',
+            head: '默认值'
+        }, {
+            key: 'introduction',
+            head: '说明'
+        }]"
+        :rows="[{
+            argument: 'value',
+            type: 'Array',
+            optional: '-',
+            default: '-',
+            introduction: '已选择的 checkbox 的 label 集合'
+        }, {
+            argument: 'label',
+            type: 'String, Number, Array',
+            optional: '-',
+            default: '-',
+            introduction: 'checkbox 的值'
+        }]">
+    </s-table>
+</div>
+
