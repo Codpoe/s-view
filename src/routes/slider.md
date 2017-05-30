@@ -70,7 +70,7 @@ slided: {{ slided4 }}
 </div>
 
 ```
-<s-slider v-model="slided5" :show-stops="true"></s-slider>
+<s-slider v-model="slided5" :step="20" :show-stops="true"></s-slider>
 slided: {{ slided5 }}
 ```
 
