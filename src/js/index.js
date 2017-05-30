@@ -7,6 +7,7 @@ import Checkbox from '../routes/checkbox.md';
 import Icon from '../routes/icon.md';
 import Radio from '../routes/radio.md';
 import Slider from '../routes/slider.md';
+import Switch from '../routes/switch.md';
 import Table from '../routes/table.md';
 
 import '../css/index.css';
@@ -39,6 +40,10 @@ const router = new VueRouter({
         {
             path: '/slider',
             component: Slider
+        },
+        {
+            path: '/switch',
+            component: Switch
         },
         {
             path: '/table',
