@@ -17,7 +17,7 @@
                  class="s-slider_track_stops">
                 <div v-for="n in (stepCount + 1)"
                      class="s-slider_track_stop"
-                     :style="{ opacity: n === 1 || n === stepCount + 1 ? 0 : 1 }">
+                     :style="{ opacity: (n === 1 || n === (stepCount + 1)) ? 0 : 1 }">
                 </div>
             </div>
 
@@ -53,11 +53,11 @@
         justify-content: center;
         align-items: center;
         padding: calc((var(--slider-thumb-size) - var(--slider-track-height)) / 2);
+        cursor: pointer;
         .s-slider_track {
             background: var(--slider-track-color);
             height: var(--slider-track-height);
             border-radius: calc(var(--slider-track-height) / 2);
-            cursor: pointer;
             position: relative;
             .s-slider_track_stops {
                 position: absolute;
@@ -201,7 +201,7 @@
             },
             trackWidth: {
                 type: Number,
-                default: 100
+                default: 150
             },
             showStops: {
                 type: Boolean,
@@ -258,7 +258,7 @@
             },
 
             indicatorWidth: function () {
-                return (this.value - this.min) / (this.max - this.min) * 100 + "%";
+                return (this.model - this.min) / (this.max - this.min) * 100 + "%";
             }
         },
 
@@ -317,7 +317,11 @@
                 if (!this.disabled) {
                     let diffX;
                     let diffValue;
+
                     diffX = ev.clientX - ev.target.getBoundingClientRect().left;
+                    if (ev.target.className === 's-slider') {
+                        diffX = diffX - 5;
+                    }
                     diffValue = Math.round(diffX / (this.trackWidth / this.stepCount)) * this.step;
                     this.model = this.min + diffValue;
                 }

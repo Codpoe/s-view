@@ -121,7 +121,9 @@
             label: {
                 type: String
             },
-            value: {},
+            value: {
+
+            },
             disabled: {
                 type: Boolean,
                 default: false
@@ -154,6 +156,7 @@
             onClick: function (ev) {
                 if (!this.disabled) {
                     this.model = this.label;
+                    this.$emit('change', ev);
                 }
             }
         }

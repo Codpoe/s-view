@@ -85,6 +85,26 @@
   以`#`开头的 HEX 值，例如上面的`#88c9c6`
 
 `raised`时，`color-style`作用于背景色；`flat`时，`color-style`作用于文字颜色。
+
+## Button Group - 按钮组
+
+<div class="demo">
+    <s-button-group>
+        <s-button >ONE</s-button>
+        <s-button >TWO</s-button>
+        <s-button >THREE</s-button>
+        <s-button >FOUR</s-button>
+    </s-button-group>
+</div>
+
+```
+<s-button-group>
+    <s-button >ONE</s-button>
+    <s-button >TWO</s-button>
+    <s-button >THREE</s-button>
+    <s-button >FOUR</s-button>
+</s-button-group>
+```
   
 
   

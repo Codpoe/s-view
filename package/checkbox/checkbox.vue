@@ -173,11 +173,11 @@
 
             isChecked: function () {
                 if (typeof this.label === 'string' || typeof this.label === 'number') {
-                    return this.value.indexOf(this.label) > -1;
+                    return this.model.indexOf(this.label) > -1;
                 } else {
                     let i = 0;
                     for (; i < this.label.length; i ++) {
-                        if (this.value.indexOf(this.label[i]) < 0) {
+                        if (this.model.indexOf(this.label[i]) < 0) {
                             break;
                         }
                     }
@@ -191,21 +191,21 @@
                 if (!this.disabled) {
                     if (this.isChecked) {
                         if (typeof this.label === 'string' || typeof this.label === 'number') {
-                            let index = this.value.indexOf(this.label);
-                            this.value.splice(index, 1);
+                            let index = this.model.indexOf(this.label);
+                            this.model.splice(index, 1);
                         } else {
                             this.label.forEach((item) => {
-                                let index = this.value.indexOf(item);
-                                this.value.splice(index, 1);
+                                let index = this.model.indexOf(item);
+                                this.model.splice(index, 1);
                             });
                         }
                     } else {
                         if (typeof this.label === 'string' || typeof this.label === 'number') {
-                            this.value.push(this.label);
+                            this.model.push(this.label);
                         } else {
                             for (let i = 0; i < this.label.length; i ++) {
-                                if (this.value.indexOf(this.label[i]) < 0) {
-                                    this.value.push(this.label[i]);
+                                if (this.model.indexOf(this.label[i]) < 0) {
+                                    this.model.push(this.label[i]);
                                 }
                             }
                             // this.value.push(...new Set(this.label));
