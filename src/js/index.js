@@ -4,7 +4,9 @@ import Sview from './sview.js';
 import Badge from '../routes/badge.md';
 import Button from '../routes/button.md';
 import Checkbox from '../routes/checkbox.md';
+import Icon from '../routes/icon.md';
 import Radio from '../routes/radio.md';
+import Slider from '../routes/slider.md';
 import Table from '../routes/table.md';
 
 import '../css/index.css';
@@ -27,8 +29,16 @@ const router = new VueRouter({
             component: Checkbox
         },
         {
+            path: '/icon',
+            component: Icon
+        },
+        {
             path: '/radio',
             component: Radio
+        },
+        {
+            path: '/slider',
+            component: Slider
         },
         {
             path: '/table',

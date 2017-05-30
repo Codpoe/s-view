@@ -201,7 +201,7 @@
             },
             trackWidth: {
                 type: Number,
-                default: 100
+                default: 150
             },
             showStops: {
                 type: Boolean,
@@ -258,7 +258,7 @@
             },
 
             indicatorWidth: function () {
-                return (this.value - this.min) / (this.max - this.min) * 100 + "%";
+                return (this.model - this.min) / (this.max - this.min) * 100 + "%";
             }
         },
 
