@@ -13,8 +13,8 @@
 <div class="demo">
     <div>
         <s-input type="text" placeholder="Text..." v-model="input">
-            <template slot="prepend">http://</template>
-            <template slot="append">.com</template>
+            <template slot="prefix">http://</template>
+            <template slot="suffix">.com</template>
         </s-input>
     </div>
     <br><br>
@@ -24,9 +24,9 @@
 可点击的前缀和后缀：
 <div class="demo">
     <div>
-        <s-input type="text" placeholder="Text..." v-model="input" :pend-clickable="true">
-            <template slot="prepend">http://</template>
-            <template slot="append">.com</template>
+        <s-input type="text" placeholder="Text..." v-model="input" :fix-clickable="true">
+            <template slot="prefix">http://</template>
+            <template slot="suffix">.com</template>
         </s-input>
     </div>
     <br><br>
@@ -48,8 +48,8 @@
 <div class="demo">
     <div>
         <s-input type="text" placeholder="Text..." v-model="input" :disabled="true">
-            <template slot="prepend">http://</template>
-            <template slot="append">.com</template>
+            <template slot="prefix">http://</template>
+            <template slot="suffix">.com</template>
         </s-input>
     </div>
     <br><br>

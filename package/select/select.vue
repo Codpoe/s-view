@@ -14,7 +14,7 @@
                  :disabled="disabled"
                  @pendClick="handleIndicatorClick">
 
-            <template slot="append">
+            <template slot="suffix">
                 <span class="s-select__indicator"></span>
             </template>
 

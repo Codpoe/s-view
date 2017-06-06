@@ -2,10 +2,10 @@
     <div class="s-input"
           :class="[
               's-input--' + size,
-              $slots.prepend ? 's-input--prepend' : '',
-              $slots.append ? 's-input--append' : '',
+              $slots.prefix ? 's-input--prefix' : '',
+              $slots.suffix ? 's-input--suffix' : '',
               readonly ? 's-input--readonly' : '',
-              pendClickable ? 's-input--pendClickable' : '',
+              fixClickable ? 's-input--fixClickable' : '',
               disabled ? 's-input--disabled' : '',
               !validateOk ? 's-input--error' : ''
           ]">
@@ -15,8 +15,8 @@
         <!--</div>-->
 
         <div class="s-input__content">
-            <div v-if="$slots.prepend" class="s-input__prepend" @click="handlePendClick">
-                <slot name="prepend"></slot>
+            <div v-if="$slots.prefix" class="s-input__prefix" @click="handleFixClick">
+                <slot name="prefix"></slot>
             </div>
 
             <input v-if="type === 'text'"
@@ -28,8 +28,8 @@
 
             <input v-else type="password" :size="size" v-model="model" :disabled="disabled">
 
-            <div v-show="$slots.append" class="s-input__append" @click="handlePendClick">
-                <slot name="append"></slot>
+            <div v-show="$slots.suffix" class="s-input__suffix" @click="handleFixClick">
+                <slot name="suffix"></slot>
             </div>
 
                 <!--<div v-if="$slots.right-icon" class="s-input__right-icon">-->
@@ -103,8 +103,8 @@
                     color: var(--blue-grey-light);
                 }
             }
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 float: left;
                 height: 100%;
                 padding: 0 var(--input-padding);
@@ -124,26 +124,26 @@
         }
     }
 
-    .s-input--prepend {
+    .s-input--prefix {
         .s-input__content {
             input {
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
-            .s-input__prepend {
+            .s-input__prefix {
                 border-right: none;
                 border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
             }
         }
     }
 
-    .s-input--append {
+    .s-input--suffix {
         .s-input__content {
             input {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
-            .s-input__append {
+            .s-input__suffix {
                 border-left: none;
                 border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
             }
@@ -156,8 +156,8 @@
                 padding: 4px;
                 font-size: 12px;
             }
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -176,8 +176,8 @@
                 padding: 8px;
                 font-size: 16px;
             }
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -203,10 +203,10 @@
         }
     }
 
-    .s-input--pendClickable {
+    .s-input--fixClickable {
         .s-input__content {
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 cursor: pointer;
                 transition: all 0.25s;
                 &:hover {
@@ -236,10 +236,10 @@
         }
     }
 
-    .s-input--pendClickable.s-input--disabled {
+    .s-input--fixClickable.s-input--disabled {
         .s-input__content {
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 &:hover {
                     border-color: var(--blue-grey-extra-light);
                 }
@@ -284,7 +284,7 @@
             placeholder: {
                 type: String,
             },
-            pendClickable: {
+            fixClickable: {
                 type: Boolean,
                 default: false
             },
@@ -325,9 +325,9 @@
         },
 
         methods: {
-            handlePendClick: function (ev) {
-                console.log("prepend / append click");
-                this.$emit("pendClick", ev);
+            handleFixClick: function (ev) {
+                console.log("prefix / suffix click");
+                this.$emit("fixClick", ev);
             },
 
             onBlur: function (ev) {
