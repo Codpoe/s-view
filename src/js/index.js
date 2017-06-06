@@ -5,6 +5,7 @@ import Badge from '../routes/badge.md';
 import Button from '../routes/button.md';
 import Checkbox from '../routes/checkbox.md';
 import Icon from '../routes/icon.md';
+import Input from '../routes/input.md';
 import Radio from '../routes/radio.md';
 import Slider from '../routes/slider.md';
 import Switch from '../routes/switch.md';
@@ -32,6 +33,10 @@ const router = new VueRouter({
         {
             path: '/icon',
             component: Icon
+        },
+        {
+            path: '/input',
+            component: Input
         },
         {
             path: '/radio',

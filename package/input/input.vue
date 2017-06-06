@@ -49,6 +49,14 @@
 <style lang="postcss">
     @import "../common/common.css";
 
+    :root {
+        --input-height: 32px;
+        --input-border-radius: 2px;
+        --input-font-size: 14px;
+        --input-padding: 12px;
+        --input-validator-font-size: 12px;
+    }
+
     .s-input {
         position: relative;
         display: inline-block;
@@ -57,34 +65,39 @@
             flex-direction: row;
             justify-content: flex-start;
             align-items: stretch;
+            height: var(--input-height);
             input {
                 outline: none;
-                border: 1px solid var(--extra-light-silver);
-                border-radius: 4px;
-                color: var(--extra-light-black);
+                height: 100%;
+                border: 1px solid var(--blue-grey-light);
+                border-radius: var(--input-border-radius);
+                padding: 0 var(--input-padding);
                 background: transparent;
+                font-size: var(--input-font-size);
                 line-height: 1;
-                transition: all 0.25s;
+                color: var(--blue-grey-dark);
+                transition: all 0.24s;
                 &:hover {
-                    border-color: var(--primary-light-color);
+                    border-color: var(--primary-light);
                 }
                 &:focus {
                     border-color: var(--primary-color);
+                    box-shadow: 0 0 2px 1px var(--primary-color);
                 }
                 &::placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &::-webkit-input-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &::-moz-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &:-moz-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &:-ms-input-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
             }
         }
@@ -92,7 +105,7 @@
             position: absolute;
             .s-input__validator__inner {
                 color: var(--error-color);
-                font-size: 12px;
+                font-size: var(--input-validator-font-size);
             }
         }
     }
@@ -104,10 +117,10 @@
                 border-bottom-left-radius: 0;
             }
             .s-input__prepend {
-                color: var(--light-silver);
-                border: 1px solid var(--extra-light-silver);
+                color: var(--blue-grey-dark);
+                border: 1px solid var(--blue-grey-light);
                 border-right: none;
-                border-radius: 4px 0 0 4px;
+                border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
             }
         }
     }
@@ -119,10 +132,10 @@
                 border-bottom-right-radius: 0;
             }
             .s-input__append {
-                color: var(--light-silver);
-                border: 1px solid var(--extra-light-silver);
+                color: var(--blue-grey-dark);
+                border: 1px solid var(--blue-grey-light);
                 border-left: none;
-                border-radius: 0 4px 4px 0;
+                border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
             }
         }
     }
@@ -150,20 +163,18 @@
     .s-input--normal {
         .s-input__content {
             input {
-                padding: 6px;
-                font-size: 14px;
+                padding: 0 var(--input-padding);
+                font-size: var(--input-font-size);
             }
             .s-input__prepend,
             .s-input__append {
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 6px;
-                font-size: 14px;
+                padding: 0 var(--input-padding);
+                font-size: var(--input-font-size);
+                line-height: calc(var(--input-height) - 2px);
             }
         }
         .s-input__validator {
-            top: 32px;
+            top: var(--input-height);
         }
     }
 
