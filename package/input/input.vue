@@ -61,15 +61,18 @@
         position: relative;
         display: inline-block;
         .s-input__content {
-            display: inline-flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: stretch;
             height: var(--input-height);
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                clear: both;
+            }
             input {
+                float: left;
                 outline: none;
                 height: 100%;
-                border: 1px solid var(--blue-grey-light);
+                border: 1px solid var(--blue-grey-extra-light);
                 border-radius: var(--input-border-radius);
                 padding: 0 var(--input-padding);
                 background: transparent;
@@ -82,7 +85,7 @@
                 }
                 &:focus {
                     border-color: var(--primary-color);
-                    box-shadow: 0 0 2px 1px var(--primary-color);
+                    box-shadow: -1px 0 4px 1px var(--primary-extra-light), 1px 0 4px 1px var(--primary-extra-light);
                 }
                 &::placeholder {
                     color: var(--blue-grey-light);
@@ -100,9 +103,20 @@
                     color: var(--blue-grey-light);
                 }
             }
+            .s-input__prepend,
+            .s-input__append {
+                float: left;
+                height: 100%;
+                padding: 0 var(--input-padding);
+                border: 1px solid var(--blue-grey-extra-light);
+                font-size: var(--input-font-size);
+                line-height: calc(var(--input-height) - 2px);
+                color: var(--blue-grey-light);
+            }
         }
         .s-input__validator {
             position: absolute;
+            top: var(--input-height);
             .s-input__validator__inner {
                 color: var(--error-color);
                 font-size: var(--input-validator-font-size);
@@ -117,8 +131,6 @@
                 border-bottom-left-radius: 0;
             }
             .s-input__prepend {
-                color: var(--blue-grey-dark);
-                border: 1px solid var(--blue-grey-light);
                 border-right: none;
                 border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
             }
@@ -132,8 +144,6 @@
                 border-bottom-right-radius: 0;
             }
             .s-input__append {
-                color: var(--blue-grey-dark);
-                border: 1px solid var(--blue-grey-light);
                 border-left: none;
                 border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
             }
@@ -157,24 +167,6 @@
         }
         .s-input__validator {
             top: 26px;
-        }
-    }
-
-    .s-input--normal {
-        .s-input__content {
-            input {
-                padding: 0 var(--input-padding);
-                font-size: var(--input-font-size);
-            }
-            .s-input__prepend,
-            .s-input__append {
-                padding: 0 var(--input-padding);
-                font-size: var(--input-font-size);
-                line-height: calc(var(--input-height) - 2px);
-            }
-        }
-        .s-input__validator {
-            top: var(--input-height);
         }
     }
 
@@ -202,10 +194,10 @@
         .s-input__content {
             input {
                 &:hover {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
                 &:focus {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
             }
         }
@@ -234,11 +226,11 @@
     .s-input--disabled {
         .s-input__content {
             input {
-                background: var(--extra-light-gray);
-                border-color: var(--extra-light-silver);
-                color: var(--extra-light-silver);
+                background: var(--blue-grey-extra-extra-light);
+                border-color: var(--blue-grey-extra-light);
+                color: var(--blue-grey-light);
                 &:hover {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
             }
         }
@@ -249,7 +241,7 @@
             .s-input__prepend,
             .s-input__append {
                 &:hover {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
             }
         }

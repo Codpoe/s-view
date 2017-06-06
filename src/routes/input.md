@@ -1,5 +1,6 @@
-# input
+# Input
 
+## 基本用法
 <div class="demo">
     <div>
         <s-input type="text" placeholder="Text..." v-model="input"></s-input>
@@ -8,9 +9,45 @@
     {{ input }}
 </div>
 
+## 前缀和后缀
 <div class="demo">
     <div>
         <s-input type="text" placeholder="Text..." v-model="input">
+            <template slot="prepend">http://</template>
+            <template slot="append">.com</template>
+        </s-input>
+    </div>
+    <br><br>
+    {{ input }}
+</div>
+
+可点击的前缀和后缀：
+<div class="demo">
+    <div>
+        <s-input type="text" placeholder="Text..." v-model="input" :pend-clickable="true">
+            <template slot="prepend">http://</template>
+            <template slot="append">.com</template>
+        </s-input>
+    </div>
+    <br><br>
+    {{ input }}
+</div>
+
+## 只读状态
+<div class="demo">
+    <div>
+        <s-input type="text" placeholder="Text..." v-model="input" :readonly="true"></s-input>
+    </div>
+    <br><br>
+    {{ input }}
+</div>
+
+只读状态不同于禁用状态，有一定的使用场景。
+
+## 禁用状态
+<div class="demo">
+    <div>
+        <s-input type="text" placeholder="Text..." v-model="input" :disabled="true">
             <template slot="prepend">http://</template>
             <template slot="append">.com</template>
         </s-input>
