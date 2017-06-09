@@ -337,7 +337,6 @@
             },
 
             validate: function () {
-                console.log(this.model);
                 this.validateOk = true;
                 let required = this.validator.required;
                 let min = this.validator.min;
@@ -345,7 +344,7 @@
                 let regexp = this.validator.regexp;
                 let custom = this.validator.custom;
 
-                if (required && required.value === true && (this.model === null || this.model === "")) {
+                if (required && required.value === true && (this.model === null || this.model === '')) {
                     this.validateOk = false;
                     this.validateError = required.error;
                     return;

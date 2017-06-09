@@ -5,8 +5,7 @@
     <div>
         <s-input type="text" placeholder="Text..." v-model="input"></s-input>
     </div>
-    <br><br>
-    {{ input }}
+    
 </div>
 
 ## 前缀和后缀
@@ -56,11 +55,27 @@
     {{ input }}
 </div>
 
+## 验证输入
+<div class="demo">
+    <div>
+        <s-input type="text" placeholder="Text..." v-model="input" :validator="validator">
+        </s-input>
+    </div>
+    <br><br>
+    {{ input }}
+</div>
+
 <script>
     export default {
         data() {
             return {
-                input: ''
+                input: '',
+                validator: {
+                    regexp: {
+                        value: /\.js$/,
+                        error: 'error'
+                    }
+                }
             }
         }
     }

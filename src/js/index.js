@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Sview from './sview.js';
+import Intro from '../routes/intro.md';
 import Badge from '../routes/badge.md';
 import Button from '../routes/button.md';
 import Checkbox from '../routes/checkbox.md';
@@ -18,6 +19,10 @@ Vue.use(Sview);
 
 const router = new VueRouter({
     routes: [
+        {
+            path: '/intro',
+            component: Intro
+        },
         {
             path: '/badge',
             component: Badge
