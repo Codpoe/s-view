@@ -12,7 +12,7 @@
             :pendClickable="true"
             @pendClick="onIndicatorClick">
 
-            <template slot="append">
+            <template slot="suffix">
                 <div class="s-date-picker__indicator"></div>
             </template>
         </s-input>

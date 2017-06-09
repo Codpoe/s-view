@@ -4,11 +4,17 @@
     // --primary-light-color: #58B7FF;
     --primary-light: #4FC3F7;
     --primary-extra-light: #B3E5FC;
-    --primary-dark-color: #1D8CE0;
+    --primary-dark-color: #0288D1;
     --accent-color: #ff4081;
     --accent-light: #F06292;
     // --accent-color: #13CE66;
     --error-color: #FF4949;
+    --blue-grey: #607D8B;
+    --blue-grey-light: #90A4AE;
+    --blue-grey-extra-light: #B0BEC5;
+    --blue-grey-extra-extra-light: #ECEFF1;
+    --blue-grey-dark: #455A64;
+
     --black: #1F2D3D;
     --light-black: #324057;
     --extra-light-black: #475669;

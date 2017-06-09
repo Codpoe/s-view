@@ -2,10 +2,10 @@
     <div class="s-input"
           :class="[
               's-input--' + size,
-              $slots.prepend ? 's-input--prepend' : '',
-              $slots.append ? 's-input--append' : '',
+              $slots.prefix ? 's-input--prefix' : '',
+              $slots.suffix ? 's-input--suffix' : '',
               readonly ? 's-input--readonly' : '',
-              pendClickable ? 's-input--pendClickable' : '',
+              fixClickable ? 's-input--fixClickable' : '',
               disabled ? 's-input--disabled' : '',
               !validateOk ? 's-input--error' : ''
           ]">
@@ -15,8 +15,8 @@
         <!--</div>-->
 
         <div class="s-input__content">
-            <div v-if="$slots.prepend" class="s-input__prepend" @click="handlePendClick">
-                <slot name="prepend"></slot>
+            <div v-if="$slots.prefix" class="s-input__prefix" @click="handleFixClick">
+                <slot name="prefix"></slot>
             </div>
 
             <input v-if="type === 'text'"
@@ -28,8 +28,8 @@
 
             <input v-else type="password" :size="size" v-model="model" :disabled="disabled">
 
-            <div v-show="$slots.append" class="s-input__append" @click="handlePendClick">
-                <slot name="append"></slot>
+            <div v-show="$slots.suffix" class="s-input__suffix" @click="handleFixClick">
+                <slot name="suffix"></slot>
             </div>
 
                 <!--<div v-if="$slots.right-icon" class="s-input__right-icon">-->
@@ -49,80 +49,103 @@
 <style lang="postcss">
     @import "../common/common.css";
 
+    :root {
+        --input-height: 32px;
+        --input-border-radius: 2px;
+        --input-font-size: 14px;
+        --input-padding: 12px;
+        --input-validator-font-size: 12px;
+    }
+
     .s-input {
         position: relative;
         display: inline-block;
         .s-input__content {
-            display: inline-flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: stretch;
+            height: var(--input-height);
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                clear: both;
+            }
             input {
+                float: left;
                 outline: none;
-                border: 1px solid var(--extra-light-silver);
-                border-radius: 4px;
-                color: var(--extra-light-black);
+                height: 100%;
+                border: 1px solid var(--blue-grey-extra-light);
+                border-radius: var(--input-border-radius);
+                padding: 0 var(--input-padding);
                 background: transparent;
+                font-size: var(--input-font-size);
                 line-height: 1;
-                transition: all 0.25s;
+                color: var(--blue-grey-dark);
+                transition: all 0.24s;
                 &:hover {
-                    border-color: var(--primary-light-color);
+                    border-color: var(--primary-light);
                 }
                 &:focus {
                     border-color: var(--primary-color);
+                    box-shadow: -1px 0 4px 1px var(--primary-extra-light), 1px 0 4px 1px var(--primary-extra-light);
                 }
                 &::placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &::-webkit-input-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &::-moz-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &:-moz-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
                 &:-ms-input-placeholder {
-                    color: var(--extra-light-silver);
+                    color: var(--blue-grey-light);
                 }
+            }
+            .s-input__prefix,
+            .s-input__suffix {
+                float: left;
+                height: 100%;
+                padding: 0 var(--input-padding);
+                border: 1px solid var(--blue-grey-extra-light);
+                font-size: var(--input-font-size);
+                line-height: calc(var(--input-height) - 2px);
+                color: var(--blue-grey-light);
             }
         }
         .s-input__validator {
             position: absolute;
+            top: var(--input-height);
             .s-input__validator__inner {
                 color: var(--error-color);
-                font-size: 12px;
+                font-size: var(--input-validator-font-size);
             }
         }
     }
 
-    .s-input--prepend {
+    .s-input--prefix {
         .s-input__content {
             input {
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
-            .s-input__prepend {
-                color: var(--light-silver);
-                border: 1px solid var(--extra-light-silver);
+            .s-input__prefix {
                 border-right: none;
-                border-radius: 4px 0 0 4px;
+                border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
             }
         }
     }
 
-    .s-input--append {
+    .s-input--suffix {
         .s-input__content {
             input {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
-            .s-input__append {
-                color: var(--light-silver);
-                border: 1px solid var(--extra-light-silver);
+            .s-input__suffix {
                 border-left: none;
-                border-radius: 0 4px 4px 0;
+                border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
             }
         }
     }
@@ -133,8 +156,8 @@
                 padding: 4px;
                 font-size: 12px;
             }
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -147,34 +170,14 @@
         }
     }
 
-    .s-input--normal {
-        .s-input__content {
-            input {
-                padding: 6px;
-                font-size: 14px;
-            }
-            .s-input__prepend,
-            .s-input__append {
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 6px;
-                font-size: 14px;
-            }
-        }
-        .s-input__validator {
-            top: 32px;
-        }
-    }
-
     .s-input--large {
         .s-input__content {
             input {
                 padding: 8px;
                 font-size: 16px;
             }
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -191,19 +194,19 @@
         .s-input__content {
             input {
                 &:hover {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
                 &:focus {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
             }
         }
     }
 
-    .s-input--pendClickable {
+    .s-input--fixClickable {
         .s-input__content {
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 cursor: pointer;
                 transition: all 0.25s;
                 &:hover {
@@ -223,22 +226,22 @@
     .s-input--disabled {
         .s-input__content {
             input {
-                background: var(--extra-light-gray);
-                border-color: var(--extra-light-silver);
-                color: var(--extra-light-silver);
+                background: var(--blue-grey-extra-extra-light);
+                border-color: var(--blue-grey-extra-light);
+                color: var(--blue-grey-light);
                 &:hover {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
             }
         }
     }
 
-    .s-input--pendClickable.s-input--disabled {
+    .s-input--fixClickable.s-input--disabled {
         .s-input__content {
-            .s-input__prepend,
-            .s-input__append {
+            .s-input__prefix,
+            .s-input__suffix {
                 &:hover {
-                    border-color: var(--extra-light-silver);
+                    border-color: var(--blue-grey-extra-light);
                 }
             }
         }
@@ -281,7 +284,7 @@
             placeholder: {
                 type: String,
             },
-            pendClickable: {
+            fixClickable: {
                 type: Boolean,
                 default: false
             },
@@ -322,9 +325,9 @@
         },
 
         methods: {
-            handlePendClick: function (ev) {
-                console.log("prepend / append click");
-                this.$emit("pendClick", ev);
+            handleFixClick: function (ev) {
+                console.log("prefix / suffix click");
+                this.$emit("fixClick", ev);
             },
 
             onBlur: function (ev) {
@@ -334,7 +337,6 @@
             },
 
             validate: function () {
-                console.log(this.model);
                 this.validateOk = true;
                 let required = this.validator.required;
                 let min = this.validator.min;
@@ -342,7 +344,7 @@
                 let regexp = this.validator.regexp;
                 let custom = this.validator.custom;
 
-                if (required && required.value === true && (this.model === null || this.model === "")) {
+                if (required && required.value === true && (this.model === null || this.model === '')) {
                     this.validateOk = false;
                     this.validateError = required.error;
                     return;

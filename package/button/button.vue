@@ -20,11 +20,12 @@
     
     :root {
         --buttom-min-width: 64px;
-        --button-height: 36px;
-        --button-padding: 16px;
+        --button-height: 32px;
+        --button-padding: 12px;
         --button-border-radius: 2px;
         --button-fab-size: 56px;
         --button-fab-size-mini: 40px;
+        --button-font-size: 14px;
         --button-fab-font-size: 24px;
         --button-fab-font-size-mini: 16px;
         --button-icon-size: 32px;
@@ -49,7 +50,7 @@
         border-radius: var(--button-border-radius);
         padding: 0 var(--button-padding);
         text-align: center;
-        font-size: 14px;
+        font-size: var(--button-font-size);
         font-weight: 500;
         vertical-align: middle;
     }
