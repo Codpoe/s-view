@@ -51,7 +51,7 @@
 
     :root {
         --input-height: 32px;
-        --input-border-radius: 2px;
+        --input-border-radius: 4px;
         --input-font-size: 14px;
         --input-padding: 12px;
         --input-validator-font-size: 12px;
@@ -85,7 +85,6 @@
                 }
                 &:focus {
                     border-color: var(--primary-color);
-                    box-shadow: -1px 0 4px 1px var(--primary-extra-light), 1px 0 4px 1px var(--primary-extra-light);
                 }
                 &::placeholder {
                     color: var(--blue-grey-light);
@@ -341,30 +340,30 @@
                 let required = this.validator.required;
                 let min = this.validator.min;
                 let max = this.validator.max;
-                let regexp = this.validator.regexp;
+                let regExp = this.validator.regExp;
                 let custom = this.validator.custom;
 
                 if (required && required.value === true && (this.model === null || this.model === '')) {
                     this.validateOk = false;
                     this.validateError = required.error;
-                    return;
+                    return false;
                 }
                 if (min && Number(this.model) < min.value) {
                     this.validateOk = false;
                     this.validateError = min.error;
-                    return;
+                    return false;
                 }
                 if (max && Number(this.model) > max.value) {
                     this.validateOk = false;
                     this.validateError = max.error;
-                    return;
+                    return false;
                 }
-                if (regexp) {
-                    let pattern = new RegExp(regexp.value);
+                if (regExp) {
+                    let pattern = new RegExp(regExp.value);
                     if (!(pattern.test(this.model))) {
                         this.validateOk = false;
-                        this.validateError = regexp.error;
-                        return;
+                        this.validateError = regExp.error;
+                        return false;
                     }
                 }
                 if (custom) {
@@ -372,9 +371,10 @@
                     if (!fn(this.model)) {
                         this.validateOk = false;
                         this.validateError = custom.error;
-                        return;
+                        return false;
                     }
                 }
+                return true;
             }
         },
 
@@ -384,6 +384,10 @@
                     this.validate();
                 }
             }
+        },
+
+        mounted() {
+            this.$emit('s.form.addItem', this);
         }
     }
 </script>

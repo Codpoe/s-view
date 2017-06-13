@@ -5,6 +5,7 @@ import Intro from '../routes/intro.md';
 import Badge from '../routes/badge.md';
 import Button from '../routes/button.md';
 import Checkbox from '../routes/checkbox.md';
+import Form from '../routes/form.md';
 import Icon from '../routes/icon.md';
 import Input from '../routes/input.md';
 import Radio from '../routes/radio.md';
@@ -20,6 +21,10 @@ Vue.use(Sview);
 const router = new VueRouter({
     routes: [
         {
+            path: '/',
+            component: Intro
+        },
+        {
             path: '/intro',
             component: Intro
         },
@@ -34,6 +39,10 @@ const router = new VueRouter({
         {
             path: '/checkbox',
             component: Checkbox
+        },
+        {
+            path: '/form',
+            component: Form
         },
         {
             path: '/icon',

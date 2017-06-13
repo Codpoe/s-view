@@ -12,6 +12,7 @@ import SIcon from "../../package/icon/icon.vue";
 import SPicker from "../../package/picker/picker.vue";
 import SDatePicker from "../../package/picker/date-picker.vue";
 import STable from '../../package/table/table.vue';
+import SForm from '../../package/form/form.vue';
 
 const components = [
     SButton,
@@ -27,7 +28,8 @@ const components = [
     SIcon,
     SPicker,
     SDatePicker,
-    STable
+    STable,
+    SForm
 ];
 
 const install = function (Vue) {

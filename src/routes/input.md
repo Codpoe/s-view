@@ -71,7 +71,7 @@
             return {
                 input: '',
                 validator: {
-                    regexp: {
+                    regExp: {
                         value: /\.js$/,
                         error: 'error'
                     }
