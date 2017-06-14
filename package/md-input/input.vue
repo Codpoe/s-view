@@ -2,7 +2,8 @@
     <div class="s-md-input"
         :class="[
             focused ? 's-md-input--focused' : '',
-            inputed ? 's-md-input--inputed' : ''
+            inputed ? 's-md-input--inputed' : '',
+            disabled ? 's-md-input--disabled' : ''
         ]">
         <div class="placeholder"
             :class="focused ? 'placeholder--focus' : ''">
@@ -10,7 +11,7 @@
         </div>
         <div class="line"></div>
         <input v-if="type === 'text'" v-model="model" :disabled="disabled" @focus="onFocus" @blur="onBlur">
-        <input v-else type="password" v-model="model" :disabled="disabled">
+        <input v-else type="password" v-model="model" :disabled="disabled" @focus="onFocus" @blur="onBlur">
     </div>
 </template>
 
@@ -94,6 +95,14 @@
             width: 100%;
         }
     }
+
+    .s-md-input--disabled {
+        pointer: default;
+        input {
+            border-bottom-style: dotted;
+            color: var(--blue-grey-light);
+        }
+    }
 </style>
 
 <script>
@@ -141,10 +150,14 @@
 
         methods: {
             onFocus(ev) {
-                this.focused = true;
+                if (!this.disabled) {
+                    this.focused = true;
+                }
             },
             onBlur(ev) {
-                this.focused = false;
+                if (!this.disabled) {
+                    this.focused = false;
+                }
             }
         }
     }
