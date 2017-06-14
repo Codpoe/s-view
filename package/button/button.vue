@@ -20,8 +20,8 @@
     
     :root {
         --buttom-min-width: 64px;
-        --button-height: 32px;
-        --button-padding: 12px;
+        --button-height: 36px;
+        --button-padding: 16px;
         --button-border-radius: 2px;
         --button-fab-size: 56px;
         --button-fab-size-mini: 40px;
@@ -40,7 +40,7 @@
         outline: none;
         border: none;
         background: transparent;
-        transition: all 0.25s;
+        transition: all 0.24s;
         cursor: pointer;
     }
 
@@ -70,13 +70,19 @@
     }
 
     .s-button--raised {
-        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.25);
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
         color: white;
+        &:active {
+            box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+        }
     }
 
     .s-button--flat {
         background: transparent;
         color: #555;
+        &:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
     }
 
     .s-button--raised.s-button--primary {
