@@ -40,11 +40,9 @@
         outline: none;
         border: none;
         background: transparent;
+        line-height: 0;
         transition: all 0.24s;
         cursor: pointer;
-        .fa {
-            margin-right: 0.2em;
-        }
     }
 
     .s-button--normal {
@@ -55,14 +53,18 @@
         text-align: center;
         font-size: var(--button-font-size);
         font-weight: 500;
-        vertical-align: middle;
+        .fa {
+            margin-right: 8px;
+        }
     }
 
     .s-button--fab {
+        position: relative;
         width: var(--button-fab-size);
         height: var(--button-fab-size);
         border-radius: 50%;
         font-size: var(--button-fab-font-size);
+        line-height: 0;
     }
 
     .s-button--mini-fab {
