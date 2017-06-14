@@ -119,6 +119,18 @@
     </div>
 </div>
 
+```
+<s-input type="text" placeholder="Text..." v-model="input7" :validator="validator7"></s-input>
+<br><br>
+<s-input type="text" placeholder="Text..." v-model="input8" :validator="validator8"></s-input>
+<br><br>
+<s-input type="text" placeholder="Text..." v-model="input9" :validator="validator9"></s-input>
+<br><br>
+<s-input type="text" placeholder="Text..." v-model="input10" :validator="validator10"></s-input>
+<br><br>
+<s-input type="text" placeholder="Text..." v-model="input11" :validator="validator11"></s-input>
+```
+
 <script>
     export default {
         data() {
