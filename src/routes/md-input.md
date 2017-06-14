@@ -1,7 +1,7 @@
 # md-input
 
 <div class="demo">
-    <s-md-input v-model="input" placeholder="Username"></s-md-input>
+    <s-md-input class="md-input" v-model="input" placeholder="Username"></s-md-input>
 </div>
 
 <script>

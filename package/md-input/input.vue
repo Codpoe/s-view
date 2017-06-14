@@ -1,6 +1,9 @@
 <template>
     <div class="s-md-input"
-        :class="focused ? 's-md-input--focus' : ''">
+        :class="[
+            focused ? 's-md-input--focused' : '',
+            inputed ? 's-md-input--inputed' : ''
+        ]">
         <div class="placeholder"
             :class="focused ? 'placeholder--focus' : ''">
             {{ placeholder }}
@@ -24,13 +27,17 @@
     .s-md-input {
         position: relative;
         margin: var(--s-md-input-margin) 0;
+        width: 200px;
         height: 24px;
+        font-size: 16px;
         .placeholder {
             position: absolute;
             top: 2px;
+            width: 100%;
             line-height: 100%;
-            font-size: 14px;
+            font-size: 100%;
             color: var(--blue-grey-light);
+            overflow: hidden;
             transform-origin: bottom left;
             transition: transform 0.4s cubic-bezier(0.24,0.6,0.24,1), color 0.4s;
         }
@@ -43,30 +50,46 @@
             height: 2px;
             margin: 0 auto;
             background: var(--primary-color);
-            transition: width 0.2s;
+            transition: width 0.24s;
             z-index: 6;
         }
         input {
             position: relative;
             top: 0;
             left: 0;
+            width: 100%;
             height: 100%;
             padding-bottom: var(--s-md-input-padding);
             outline: none;
             border: none;
-            border-bottom: 1px solid var(--blue-grey-extra-light);
+            border-bottom: 1px solid var(--blue-grey-light);
             background: transparent;
             line-height: 100%;
-            font-size: 14px;
+            font-size: 100%;
             color: #555;
         }
     }
 
-    .s-md-input--focus {
+    .s-md-input--focused {
         .placeholder {
-            transform: translate3d(0,-1.35em,0) scale(0.86);
+            transform: translate3d(0,-1.35em,0) scale(0.8);
             color: var(--primary-color);
         }
+        .line {
+            width: 100%;
+        }
+    }
+
+    .s-md-input--inputed {
+        .placeholder {
+            transform: translate3d(0,-1.35em,0) scale(0.8);
+        }
+        .line {
+            width: 0;
+        }
+    }
+
+    .s-md-input--focused.s-md-input--inputed {
         .line {
             width: 100%;
         }
@@ -110,6 +133,9 @@
                     console.log(`s-md-input set model: ${newVal}`);
                     this.$emit('input', newVal);
                 }
+            },
+            inputed() {
+                return this.value !== '';
             }
         },
 
