@@ -13,6 +13,7 @@ import SPicker from "../../package/picker/picker.vue";
 import SDatePicker from "../../package/picker/date-picker.vue";
 import STable from '../../package/table/table.vue';
 import SForm from '../../package/form/form.vue';
+import SMDInput from '../../package/md-input/input.vue';
 
 const components = [
     SButton,
@@ -29,7 +30,8 @@ const components = [
     SPicker,
     SDatePicker,
     STable,
-    SForm
+    SForm,
+    SMDInput
 ];
 
 const install = function (Vue) {
@@ -57,7 +59,9 @@ module.exports = {
     SIcon,
     SPicker,
     SDatePicker,
-    STable
+    STable,
+    SForm,
+    SMDInput
 };
 
 

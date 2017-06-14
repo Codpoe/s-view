@@ -8,6 +8,7 @@ import Checkbox from '../routes/checkbox.md';
 import Form from '../routes/form.md';
 import Icon from '../routes/icon.md';
 import Input from '../routes/input.md';
+import SMDInput from '../routes/md-input.md';
 import Radio from '../routes/radio.md';
 import Slider from '../routes/slider.md';
 import Switch from '../routes/switch.md';
@@ -51,6 +52,10 @@ const router = new VueRouter({
         {
             path: '/input',
             component: Input
+        },
+        {
+            path: '/md-input',
+            component: SMDInput
         },
         {
             path: '/radio',
