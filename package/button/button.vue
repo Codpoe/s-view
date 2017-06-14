@@ -42,6 +42,9 @@
         background: transparent;
         transition: all 0.24s;
         cursor: pointer;
+        .fa {
+            margin-right: 0.2em;
+        }
     }
 
     .s-button--normal {
