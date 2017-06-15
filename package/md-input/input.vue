@@ -35,6 +35,7 @@
             position: absolute;
             top: 2px;
             width: 100%;
+            height: 100%;
             line-height: 100%;
             font-size: 100%;
             color: var(--blue-grey-light);
@@ -73,7 +74,7 @@
 
     .s-md-input--focused {
         .placeholder {
-            transform: translate3d(0,-1.35em,0) scale(0.8);
+            transform: translateY(-1.35em) scale(0.8);
             color: var(--primary-color);
         }
         .line {
@@ -83,7 +84,7 @@
 
     .s-md-input--inputed {
         .placeholder {
-            transform: translate3d(0,-1.35em,0) scale(0.8);
+            transform: translateY(-1.35em) scale(0.8);
         }
         .line {
             width: 0;
